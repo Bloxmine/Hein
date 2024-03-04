@@ -2,14 +2,26 @@
 body {
     height: 100vh;
     margin: 0;
-    font-family: 'Josefin', Arial, Helvetica, sans-serif;
+    font-family: 'Montreal', Arial, Helvetica, sans-serif;
     overflow-y: scroll; 
 }
 
 h1 {
     text-align: center;
-    font-family: 'Josefin', Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-family: 'Monument', Arial, Helvetica, italic;
     text-shadow: 0px 0px 10px #ffffff;
+}
+
+.heinimage {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background-image: url('../images/hein.png');
+    background-size: cover;
+    z-index: 0;
 }
 
 #title-container {
@@ -169,7 +181,12 @@ p {
 }
 
 @font-face {
-    font-family: 'Josefin';
-    src: url(../fonts/Josefin.woff) format('woff');
+    font-family: 'Montreal';
+    src: url(../fonts/Montreal.woff) format('woff');
     font-style: sans-serif;
+}
+@font-face {
+    font-family: 'Monument';
+    src: url(../fonts/Monument.woff) format('woff');
+    font-style: italic;
 }
