@@ -19,6 +19,7 @@ h1 {
     right: 0;
     width: 400px;
     height: 400px;
+    pointer-events: none;
     background-image: url('../images/hein.png');
     background-size: cover;
     z-index: 0;
