@@ -18,36 +18,47 @@ h1 {
 
 #spotlight-left {
     position: fixed;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    bottom: 1vh;
+    left: 10vw;
+    transform-origin: bottom;
+    transform: translateY(100%);
     width: 200px;
-    height: 200px;
-    background-image: url('images/spot.png');
+    height: 600px;
+    background-image: url('../images/spot.png');
     background-size: cover;
-    animation: sway 4s ease-in-out infinite alternate;
-    z-index: 3;
+    animation: sway-left 6s ease-in-out infinite alternate;
+    z-index: 0;
 }
 
 #spotlight-right {
     position: fixed;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
+    bottom: 1vh;
+    right: 10vw;
+    transform-origin: bottom;
+    transform: translateY(100%);
     width: 200px;
-    height: 200px;
-    background-image: url('images/spot.png');
+    height: 600px;
+    background-image: url('../images/spot.png');
     background-size: cover;
-    animation: sway 4s ease-in-out infinite alternate;
-    z-index: 3;
+    animation: sway-right 6s ease-in-out infinite alternate;
+    z-index: 0;
 }
 
-@keyframes sway {
+@keyframes sway-left {
     0% {
-        transform: translateX(-10px);
+        transform: rotate(-30deg);
     }
     100% {
-        transform: translateX(10px);
+        transform: rotate(30deg);
+    }
+}
+
+@keyframes sway-right {
+    0% {
+        transform: rotate(30deg);
+    }
+    100% {
+        transform: rotate(-30deg);
     }
 }
 
@@ -57,6 +68,47 @@ h1 {
     }
     20%, 24%, 55% {
         text-shadow: none;
+    }
+}
+
+#skyline {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 200px;
+    background-image: url('../images/skyline.png');
+    background-repeat: repeat-x;
+    z-index: 0;
+}
+
+#moon {
+    position: fixed;
+    top: 10vh;
+    right: 10vw;
+    width: 200px;
+    height: 200px;
+    background-image: url('../images/moon.png');
+    background-size: cover;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    top: -10px;
+    width: 3px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: twinkle 1s linear infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
     }
 }
 

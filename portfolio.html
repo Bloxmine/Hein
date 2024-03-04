@@ -35,8 +35,51 @@
             <div><h2>New projects</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
         </a>
     </div>
-
     <div id="spotlight-left"></div>
     <div id="spotlight-right"></div>
+    <div id="skyline"></div>
+    <script>        
+        // Generate a random number between min and max
+        function getRandomNumber(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        // Create a star element
+        function createStar() {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${getRandomNumber(0, 100)}%`;
+            star.style.top = `${getRandomNumber(0, 50)}%`; // Changed from 100 to 50
+            return star;
+        }
+
+        // Add stars to the sky
+        function addStarsToSky(numStars) {
+            const body = document.body; // Changed from 'skyline' to 'body'
+            for (let i = 0; i < numStars; i++) {
+                const star = createStar();
+                body.appendChild(star); // Append the stars to the body
+            }
+        }
+
+        // Animate the stars to twinkle
+        function animateStars() {
+            const stars = document.getElementsByClassName('star');
+            for (let i = 0; i < stars.length; i++) {
+                const star = stars[i];
+                star.style.animationDelay = `${getRandomNumber(0, 5)}s`;
+            }
+        }
+
+        // Call the functions to generate and animate stars
+        addStarsToSky(50); // Change the number of stars as desired
+        animateStars();
+
+        // Position the moon element on top left
+        const moon = document.getElementById('moon');
+        moon.style.position = 'absolute';
+        moon.style.top = '20';
+        moon.style.left = '20';
+    </script>
 </body>
 </html>
