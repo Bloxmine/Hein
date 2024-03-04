@@ -1,0 +1,186 @@
+/* this is the CSS file for the winter theme, such a mess! */
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-y: scroll;
+    background-color: #000000;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.cube {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    animation: rotate 10s linear infinite;
+    z-index: -1;
+}
+
+.blur {
+    position: relative; /* Add this line */
+    -webkit-backdrop-filter: blur(100px);
+    backdrop-filter: blur(100px);
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#toggleSnowBtn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+#navbar {
+    /* it's a mess! */
+    width: 800px; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px; 
+    padding: 10px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    align-items: center; 
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.5); 
+    /* because safari */
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+#navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+#navbar a:hover {
+    color: #d1eff7;
+}
+#navbar a:active {
+    color: #7fb3c2;
+}
+
+#navbarImage {
+    margin-left: auto;
+    height: 50px;
+    transition: transform 0.5s ease-in-out;
+}
+
+#navbarImage:hover {
+    transform: rotate(360deg);
+}
+
+#about-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 50px auto;
+    width: 800px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 50px auto;
+    width: 800px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-container .box {
+    flex: 1 0 calc(33.333% - 20px);
+    margin: 10px;
+    background-image: linear-gradient(#e0e0e0, #ffffff);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    text-decoration: none;
+}
+
+.portfolio-container .box:hover {
+    transform: scale(1.1);
+    background-image: linear-gradient(#cfcfcf, #ffffff)
+}
+
+h2 {
+    color: #f5b41c;
+    color: #003366;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: auto;
+}
+
+p {
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+/* Snow effect */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(calc(100vh - 10px)); /* pile up at the bottom, at least, that's the point */
+    }
+}
+
+/* cloud animation */
+@keyframes cloudMove {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+#cloud {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 512px;
+    height: 256px;
+    background-image: url('images/cloud.png');
+    background-size: cover;
+    animation: cloudMove 30s linear infinite;
+    z-index: 0;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hein Dijstelbloem</title>
+    <link rel="stylesheet" href="css/blur.css">
+</head>
+<body>
+    <h1>Blur test</h1>
+    <!-- dont forget!! -->
+    <nav id="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="portfolio.html">Portfolio</a>
+        <img id="navbarImage">
+    </nav>
+    
+    <div id="about-container">
+        <h2>About this portfolio</h2>
+        <p>This portfolio is a means to showcase some of my personal web and design related projects. The website itself is part of my portfolio, because it is a showcase of my javascript experiments. The seasons you see in the background for example, those aren't from some library, I've been working on them as a challenge.</p>
+        <p>These projects have been divided into three 'eras' </p>
+    </div>
+    <div class="portfolio-container">
+        <a href="oldprojects.html" class="box">
+            <div><h2>My old projects</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+        </a>
+        <a href="firstweek.html" class="box">
+            <div><h2>First week projects</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+        </a>
+        <a href="newprojects.html" class="box">
+            <div><h2>New projects</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+        </a>
+    </div>
+    <div id="about-container">
+        <p id="seasonParagraph"></p>
+    </div>
+    <!-- change name of button automatically? -->
+    <button id="toggleSnowBtn" style="position: fixed; bottom: 10px; right: 10px;">Toggle Snow</button>
+    <input type="range" id="transparencySlider" min="0" max="1" step="0.1" value="0.7" style="position: fixed; bottom: 7px; right: 120px;"> <!-- Added slider -->
+    <div id="cloud"></div> <!-- cloud, forget this or fix? -->
+    <div class="blur"></div> <!-- Added blur element -->
+    <script>      
+        // random cubes
+        function generateRandomPosition() {
+            var positionX = Math.floor(Math.random() * (window.innerWidth - 200)) + 100; // Generate random X position between 100 and (window.innerWidth - 100)
+            var positionY = Math.floor(Math.random() * (window.innerHeight - 200)) + 100; // Generate random Y position between 100 and (window.innerHeight - 100)
+            return { x: positionX, y: positionY };
+        }
+
+        function generateRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function createCubes() {
+            var numCubes = 10;
+            var background = document.getElementById('about-container'); // Change this to the appropriate container element
+
+            for (var i = 0; i < numCubes; i++) {
+                var cube = document.createElement('div');
+                cube.classList.add('cube');
+                var position = generateRandomPosition();
+                cube.style.left = position.x + 'px';
+                cube.style.top = position.y + 'px';
+                cube.style.backgroundColor = generateRandomColor(); // Set random color
+                background.appendChild(cube);
+            }
+        }
+        
+        function moveCubes() {
+            var cubes = document.getElementsByClassName('cube');
+            for (var i = 0; i < cubes.length; i++) {
+                var cube = cubes[i];
+                var position = generateRandomPosition();
+                cube.style.transition = 'left 1s, top 1s'; // Add CSS transition for smooth movement
+                cube.style.left = position.x + 'px';
+                cube.style.top = position.y + 'px';
+            }
+        }
+        
+        createCubes();
+        setInterval(moveCubes, 2000); // Move cubes every 2 seconds
+    </script>
+</body>
+</html>
