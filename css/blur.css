@@ -15,10 +15,23 @@ body {
     height: 500px;
     animation: rotate 10s linear infinite;
     z-index: -1;
+    transition: background-color 2s ease-in-out;
+}
+
+@keyframes bounce {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(100px, 0); }
+    50% { transform: translate(100px, 100px); }
+    75% { transform: translate(0, 100px); }
+    100% { transform: translate(0, 0); }
 }
 
 .blur {
-    position: relative; /* Add this line */
+    position: absolute; /* Change this line */
+    top: 0; /* Add this line */
+    right: 0; /* Add this line */
+    bottom: 0; /* Add this line */
+    left: 0; /* Add this line */
     -webkit-backdrop-filter: blur(100px);
     backdrop-filter: blur(100px);
     height: 100vh;
@@ -71,6 +84,7 @@ h1 {
     padding: 10px 20px;
     margin: 0 10px;
     font-size: 20px;
+    z-index: 2;
 }
 
 #navbar a:hover {

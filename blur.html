@@ -44,17 +44,16 @@
     <script>      
         // random cubes
         function generateRandomPosition() {
-            var positionX = Math.floor(Math.random() * (window.innerWidth - 200)) + 100; // Generate random X position between 100 and (window.innerWidth - 100)
-            var positionY = Math.floor(Math.random() * (window.innerHeight - 200)) + 100; // Generate random Y position between 100 and (window.innerHeight - 100)
+            var positionX = Math.floor(Math.random() * (window.innerWidth / 2)); // Generate random X position between 0 and half of the window width
+            var positionY = Math.floor(Math.random() * (window.innerHeight / 2)); // Generate random Y position between 0 and half of the window height
             return { x: positionX, y: positionY };
         }
 
         function generateRandomColor() {
-            var letters = '0123456789ABCDEF';
-            var color = '#';
-            for (var i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
+            var hue = Math.floor(Math.random() * 360); // Generate random hue value between 0 and 360
+            var saturation = 100; // Set saturation to 100%
+            var lightness = 50; // Set lightness to 50%
+            var color = 'hsl(' + hue + ', ' + saturation + '%, ' + lightness + '%)';
             return color;
         }
 
@@ -69,6 +68,7 @@
                 cube.style.left = position.x + 'px';
                 cube.style.top = position.y + 'px';
                 cube.style.backgroundColor = generateRandomColor(); // Set random color
+                cube.style.transition = 'background-color 2s ease-in-out'; // Add this line
                 background.appendChild(cube);
             }
         }
@@ -77,10 +77,8 @@
             var cubes = document.getElementsByClassName('cube');
             for (var i = 0; i < cubes.length; i++) {
                 var cube = cubes[i];
-                var position = generateRandomPosition();
-                cube.style.transition = 'left 1s, top 1s'; // Add CSS transition for smooth movement
-                cube.style.left = position.x + 'px';
-                cube.style.top = position.y + 'px';
+                cube.style.animation = 'bounce 5s infinite'; // Add CSS animation for bouncing effect
+                cube.style.backgroundColor = generateRandomColor(); // Set random color
             }
         }
         
