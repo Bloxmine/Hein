@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wintery Website</title>
+    <style>
+        body {
+            background: linear-gradient(180deg, #eaf6ff, #87ceeb);
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden; /* Prevent vertical scrollbar */
+        }
+        
+        h1 {
+            color: #003366;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        #quiz-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 50px auto;
+            width: 500px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        
+        input[type="radio"] {
+            margin-bottom: 10px;
+        }
+        
+        button {
+            background-color: #003366;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        button:hover {
+            background-color: #002255;
+        }
+        
+        #score {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        
+        /* Snow effect */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: snowfall linear infinite;
+        }
+        #submit-and-score {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0px);
+            }
+            100% {
+                transform: translateY(calc(100vh - 10px)); /* Pile up at the bottom */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Winter quiz!</h1>
+    
+    <div id="quiz-container">
+        <h2>Winter Quiz</h2>
+        <p>Question 1: What is the coldest month of the year?</p>
+        <input type="radio" name="q1" value="a"> a) December<br>
+        <input type="radio" name="q1" value="b"> b) January<br>
+        <input type="radio" name="q1" value="c"> c) February<br>
+        <br>
+        <p>Question 2: What is the average temperature of a snowflake?</p>
+        <input type="radio" name="q2" value="a"> a) -5 degrees Celsius<br>
+        <input type="radio" name="q2" value="b"> b) -15 degrees Celsius<br>
+        <input type="radio" name="q2" value="c"> c) -25 degrees Celsius<br>
+        <br>
+        <p>Question 3: What is the main ingredient in hot chocolate?</p>
+        <input type="radio" name="q3" value="a"> a) Cocoa powder<br>
+        <input type="radio" name="q3" value="b"> b) Coffee<br>
+        <input type="radio" name="q3" value="c"> c) Tea<br>
+        <br>
+        <p>Question 4: What is the name of the winter holiday celebrated on December 25th?</p>
+        <input type="radio" name="q4" value="a"> a) Christmas<br>
+        <input type="radio" name="q4" value="b"> b) Halloween<br>
+        <input type="radio" name="q4" value="c"> c) Thanksgiving<br>
+        <br>
+        <div id="submit-and-score">
+            <button onclick="submitQuiz()">Submit</button>
+            <div id="score"></div>
+        </div>
+    </div>
+    
+    <script>
+        function submitQuiz() {
+            // Get the selected answers
+            var q1Answer = document.querySelector('input[name="q1"]:checked');
+            var q2Answer = document.querySelector('input[name="q2"]:checked');
+            var q3Answer = document.querySelector('input[name="q3"]:checked');
+            var q4Answer = document.querySelector('input[name="q4"]:checked');
+            
+            // Check if all questions are answered
+            if (q1Answer && q2Answer && q3Answer && q4Answer) {
+                // Check the answers
+                var score = 0;
+                if (q1Answer.value === "b") {
+                    score++;
+                }
+                if (q2Answer.value === "c") {
+                    score++;
+                }
+                if (q3Answer.value === "a") {
+                    score++;
+                }
+                if (q4Answer.value === "a") {
+                    score++;
+                }
+                
+                // Display the score
+                var scoreElement = document.getElementById("score");
+                scoreElement.textContent = "Your score is: " + score;
+            } else {
+                alert("Please answer all questions.");
+            }
+        }
+        
+        // Create snowflakes
+        for (var i = 0; i < 50; i++) {
+            var snowflake = document.createElement("div");
+            snowflake.className = "snowflake";
+            snowflake.style.left = Math.random() * 100 + "%";
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + "s";
+            document.body.appendChild(snowflake);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-y: scroll;
+}
+
+h1 {
+    color: #662200;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#toggleSnowBtn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+#navbar {
+    background-color: #663c00;
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+#navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+#navbarImage {
+    margin-left: auto;
+    height: 50px;
+}
+
+#about-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 50px auto;
+    width: 800px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.portfolio-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 50px auto;
+    width: 800px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-container .box {
+    flex: 1 0 calc(33.333% - 20px);
+    margin: 10px;
+    background-image: linear-gradient(#e0e0e0, #ffffff);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    text-decoration: none;
+}
+
+.portfolio-container .box:hover {
+    transform: scale(1.1);
+    background-image: linear-gradient(#cfcfcf, #ffffff)
+}
+
+h2 {
+    color: #bb800b;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: auto;
+}
+
+p {
+    color: #251700;
+    margin-bottom: 10px;
+}
+
+.autumn-leaf {
+    position: absolute;
+    top: -10px;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    animation: autumnfall linear infinite;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.autumn-leaf:nth-child(odd) {
+    animation-name: autumnfall1;
+}
+
+.autumn-leaf:nth-child(even) {
+    animation-name: autumnfall2;
+}
+
+@keyframes autumnfall1 {
+    0% {
+        transform: translateY(0px) rotate(-100deg);
+    }
+    100% {
+        transform: translateY(calc(100vh - 10px)) rotate(100deg);
+    }
+}
+
+@keyframes autumnfall2 {
+    0% {
+        transform: translateY(0px) rotate(100deg);
+    }
+    100% {
+        transform: translateY(calc(100vh - 10px)) rotate(-100deg);
+    }
+}
+
+@keyframes cloudMove {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+#cloud {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 512px;
+    height: 256px;
+    background-image: url('images/cloud.png');
+    background-size: cover;
+    animation: cloudMove 30s linear infinite;
+    z-index: 0;
+}

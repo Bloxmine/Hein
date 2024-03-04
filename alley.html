@@ -1,0 +1,336 @@
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> Neocities Alley </title>
+<style>
+body {
+    width: 800px;
+    margin: auto;
+    background-color: #26306a;
+    font-family: Tahoma, sans-serif;
+    line-height: 1.5;
+    overflow-y: scroll; }
+
+main {
+    display: grid;
+    grid-template-columns: auto 30%;
+    grid-template-rows: 165px 40px auto 20px 150px; // Adjusted the grid-template-rows property
+    border-radius: 10px;
+    background: #ddd;
+    margin: 20px auto;
+
+header {
+    grid-column: 1 / span 2;
+    grid-row: 1 / 1; }
+
+nav {
+    grid-column: 1 / span 2;
+    grid-row: 2 / 2;
+    background-color: #5B378B;
+    border-bottom: 3px solid #FFF69D;
+    padding-top: 5px;
+    text-align: center;
+    background-image: linear-gradient(to right, #992272, #26306a); }
+
+aside {
+    grid-column: 2 / 2;
+    grid-row: 3 / 3;
+    margin: 5px;
+    background: #FFF69D;
+    border-radius: 5px;
+    padding: 10px;
+    border: solid 3px #5B378B; }
+
+footer {
+    grid-column: 1 / span 2;
+    grid-row: 5 / 5;
+    padding: 5px 10px; }
+
+.navlink {
+    padding: 10px;
+    font-size: 14pt;
+    font-family: monospace;
+    color: #FFF69D; }
+
+.bottom_navlink {
+    padding: 5px;
+    font-size: 8pt;
+    font-family: monospace;
+    color: #FFF69D; }
+
+.headerrow {
+    background-image: linear-gradient(to right, #5B378B, #dddddd);
+    color: #FFF69D;
+    font-size: 16pt;
+    font-weight: bold; }
+
+#seb {
+    grid-column: 3 / 3;
+    grid-row: 3 / 3;
+    position: relative; 
+    z-index: 1; }
+
+nav#bottom {
+    grid-column: 1 / span 2;
+    grid-row: 4 / 4;
+    background-color: #5B378B;
+    border-bottom: 3px solid #FFF69D;
+    padding-top: 5px;
+    text-align: center;
+    background-image: linear-gradient(to right, #5B378B, #2F6881); }
+
+h1 { text-align: center; }
+h2 { font-size: 14pt; text-align: center; }
+a { color: #814F17; }
+a:hover { color: #74A3B7; }
+img { image-rendering: pixelated; }
+table { width: 100%; margin: auto; }
+td { padding: 5px; }
+th { font-size: 16pt; }
+td img { padding: 5px; }
+figure { margin: 0 0 75px 0; }
+
+a.navlink { text-decoration: underline; }
+.subtext { color: #000; font-weight: bold; }
+.scrollable { height: 500px; overflow-y: scroll; }
+
+#head_text { margin: 0 75px; vertical-align: top; }
+#centeredheader { display: block; margin: 10px auto; }
+div#text { grid-column: 1 / span 2;	grid-row: 3 / 3; padding: 10px; }
+div#list { text-align: center; font-weight: bold; font-size: 14pt; }
+
+.label {
+    background-color: #2F6881;
+    border-radius: 40px;
+    font-size: 8pt;
+    padding: 4px;
+    margin-left: 5px;
+    color: white;
+}
+
+.label > a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    grid-column: 1 / 2;
+    grid-row: 3 / 3;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
+
+.card {
+    margin: 5px;
+    width: 45%;
+    border: solid 3px #5B378B;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #FFF69D;
+    background-repeat: no-repeat;
+    background-position: center; }
+
+#footer-divider {
+    grid-column: 1 / span 2;
+    grid-row: 4 / 4;
+    background-color: #5B378B;
+    border-bottom: 3px solid #FFF69D;
+    background-image: linear-gradient(to right, #5B378B, #2F6881); }
+
+#arcadia { background-image: url(./images/cards/arcadia.png) }
+#arles { background-image: url(./images/cards/arles.png) }
+#hollywood { background-image: url(./images/cards/hollywood.png) }
+#oxford { background-image: url(./images/cards/oxford.png) }
+#petsburg { background-image: url(./images/cards/petsburg.png) }
+#purgatory { background-image: url(./images/cards/purgatory.png) }
+#siliconvalley { background-image: url(./images/cards/silicon-valley.png) }
+#silverlake { background-image: url(./images/cards/silverlake.png) }
+#stratford { background-image: url(./images/cards/stratford.png) }
+#tokyo { background-image: url(./images/cards/tokyo.png) }
+
+    .snowflake {
+            position: absolute;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: snowfall linear infinite;
+        }
+        
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0px);
+            }
+            100% {
+                transform: translateY(calc(100vh - 10px)); /* Pile up at the bottom */
+            }
+        }
+</style>
+<meta property="og:image"
+content="https://alley.neocities.org/images/logo_seb.png">
+<meta property="og:image:secure_url"
+content="https://alley.neocities.org/images/logo_seb.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="640">
+<meta property="og:image:height" content="200">
+<meta property="og:site_name" content="Neocities Alley">
+<meta property="og:title" content="Neocities Alley">
+<meta property="og:type" content="website">
+<meta property="og:url"
+content="https://alley.neocities.org/index.html">
+<meta property="theme-color" content="#5B378B">
+<meta name="twitter:title" content="Neocities Alley">
+<meta name="twitter:text:title" content="A modern day DMOZ for our
+Neocities neighbors.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" sizes="180x180"
+href="https://districts.neocities.org/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32"
+href="https://districts.neocities.org/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16"
+href="https://districts.neocities.org/favicon-16x16.png">
+<link rel="manifest"
+href="https://districts.neocities.org/site.webmanifest">
+<link rel="mask-icon"
+href="https://districts.neocities.org/safari-pinned-tab.svg"
+color="#1d7398">
+<meta name="msapplication-TileColor" content="#1d7398">
+<style></style>
+</head>
+<body>
+<main>
+<header> <img src="./Neocities%20Districts_files/logo.png"
+alt="Neocities Alley" id="head_text" height="145" width="456"><a
+href="https://alley.neocities.org/mascot.html"
+class="card" id="silverlake"><img alt="Dirt"
+src="/Neocities%20Districts_files/smallseb.png"
+height="129" width="85"></a>&nbsp; <br>
+</header>
+<nav> <a href="https://alley.neocities.org/" class="navlink">Home</a>
+<a href="https://alley.neocities.org/about.html" class="navlink">About Alley</a> <a href="https://alley.neocities.org/mascot.html"
+class="navlink">The Mascot shrine</a> <a
+href="https://alley.neocities.org/buttons.html"
+class="navlink">Buttons</a><a
+href="https://alley.neocities.org/netcafe.html"
+class="navlink">N E T カフェ</a> </nav>
+<section> <a href="https://alley.neocities.org/vidya.html"
+class="card" id="arcadia">
+<h2>Vidyas<br>
+</h2>
+<p class="subtext">Video games and stuff<br>
+</p>
+</a> <a href="https://alley.neocities.org/shenzhen.html"
+class="card" id="siliconvalley">
+<h2>Shenzhen</h2>
+<p class="subtext">Hardware, software, and programming</p>
+</a> <a href="https://alley.neocities.org/kowloon.html"
+class="card" id="hollywood">
+<h2>Kowloon Bootleg VHS<br>
+</h2>
+<p class="subtext">Cartoons, movies, and other media</p>
+</a> <a href="https://alley.neocities.org/jp.html" class="card"
+id="tokyo">
+<h2>Lost in Translation<br>
+</h2>
+<p class="subtext">Anime, manga, Asian pop, and the far east</p>
+</a> <a href="https://alley.neocities.org/art.html"
+class="card" id="arles">
+<h2>Bob Ross reprints<br>
+</h2>
+<p class="subtext">Drawings, photos, visual art</p>
+</a> <a href="https://alley.neocities.org/writing.html"
+class="card" id="stratford">
+<h2>No Harry Potter fanfics here<br>
+</h2>
+<p class="subtext">Writing and the writers who write it</p>
+</a> <a href="https://alley.neocities.org/net.html"
+class="card" id="oxford">
+<h2>Information super highway<br>
+</h2>
+<p class="subtext">Information and education</p>
+</a> <a href="https://districts.neocities.org/silver-lake/"
+class="card" id="silverlake">
+<h2>Tin Pan Alley<br>
+</h2>
+<p class="subtext">Music and sounds</p>
+</a> <a href="https://alley.neocities.org/furryville.html"
+class="card" id="petsburg">
+<h2>Furryville<br>
+</h2>
+<p class="subtext">Animals and the people who love them</p>
+</a> <a href="https://districts.neocities.org/purgatory/"
+class="card" id="purgatory">
+<h2>Back alley<br>
+</h2>
+<p class="subtext">????????????????????</p>
+</a> </section>
+<aside>
+<h1>Updates</h1>
+<strong>4 January 2024 - <i>Alley has not returned, but no rats here</i><br>
+4 May 2019 - <i>Alley is </i><i>not approved by
+Districts</i><br>
+3 May 2019 - <i>Alley is created</i></strong> </aside>
+<div id="footer-divider"> </div>
+<footer>
+<p>©2019. We are not affiliated with Neocities nor Districts. No
+sites featured in our listings are ours, except our own.<br>
+</p>
+</footer>
+</main>
+<button id="toggleSnowBtn" style="position: fixed; bottom: 10px; right: 10px;">Toggle Snow</button>
+<input type="range" id="transparencySlider" min="0" max="1" step="0.1" value="1" style="position: fixed; bottom: 7px; right: 120px;"> <!-- Added slider -->
+    <script>
+        let snowEnabled = false;
+        let snowflakes = [];
+
+        document.getElementById('seasonParagraph').textContent = `You might notice the falling of ${currentWeather}, that's because it's ${currentSeason}.`;
+        
+        function toggleSnow() {
+            snowEnabled = !snowEnabled;
+            let button = document.getElementById('toggleSnowBtn');
+
+            if (snowEnabled) {
+                // Start the snow effect
+                button.textContent = "Snow is ON";
+                createSnowflakes();
+            } else {
+                // Stop the snow effect
+                button.textContent = "Snow is OFF";
+                removeSnowflakes();
+            }
+        }
+
+        toggleSnow(); // Start the snow effect by default
+        
+        document.getElementById('toggleSnowBtn').addEventListener('click', toggleSnow);
+
+        function createSnowflakes() {
+            let transparency = document.getElementById('transparencySlider').value; // Get the value of the transparency slider
+            for (var i = 0; i < 50; i++) {
+                var snowflake = document.createElement("div");
+                snowflake.className = "snowflake";
+                snowflake.style.left = Math.random() * 100 + "%";
+                snowflake.style.animationDuration = Math.random() * 5 + 5 + "s";
+                snowflake.style.opacity = transparency; // Set the opacity based on the slider value
+                document.body.appendChild(snowflake);
+                snowflakes.push(snowflake);
+            }
+        }
+
+        function removeSnowflakes() {
+            for (var i = 0; i < snowflakes.length; i++) {
+                document.body.removeChild(snowflakes[i]);
+            }
+            snowflakes = [];
+        }
+
+        document.getElementById('transparencySlider').addEventListener('input', function() {
+            let transparency = this.value;
+            for (var i = 0; i < snowflakes.length; i++) {
+                snowflakes[i].style.opacity = transparency;
+            }
+        });
+    </script>
+</body>
+</html>

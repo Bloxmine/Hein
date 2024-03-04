@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hein Dijstelbloem</title>
+    <style>
+        body {
+            background: linear-gradient(180deg, #87ceeb, #eafaff, #eafaff, #ebc587);
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-y: scroll; /* Make the page scrollable */
+        }
+        
+        h1 {
+            color: #662200;
+            text-align: center;
+            margin-top: 50px;
+        }
+         #toggleSnowBtn {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+        #navbar {
+            background-color: #663c00;
+            width: 800px; /* Updated width */
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            border-radius: 10px; /* Rounded corners */
+            padding: 10px; /* Add padding */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+            align-items: center; /* Align items vertically */
+            position: relative; /* Add position relative */
+            z-index: 2; /* Set z-index to bring it to the front */
+        }
+        
+        #navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        #navbarImage {
+            margin-left: auto; /* Push the image to the right */
+            height: 50px; /* Adjust as needed */
+        }
+                
+        #about-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 50px auto;
+            width: 800px; /* Updated width */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1; /* Set z-index to bring it to the front */
+        }
+        
+        h2 {
+            color: #bb800b;
+            text-align: left;
+            margin-bottom: 20px;
+            margin-top: auto;
+        }
+        
+        p {
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        
+        /* Autumn leaf effect */
+        .autumn-leaf {
+            position: absolute;
+            top: -10px;
+            width: 30px; /* Adjust as needed */
+            height: 30px; /* Adjust as needed */
+            background-size: cover; /* Adjust as needed */
+            animation: autumnfall linear infinite; /* Updated animation */
+            opacity: 0.5; /* Adjust as needed */
+        }
+        .autumn-leaf:nth-child(odd) {
+            animation-name: autumnfall1;
+        }
+
+        .autumn-leaf:nth-child(even) {
+            animation-name: autumnfall2;
+        }
+        
+        @keyframes autumnfall1 {
+            0% {
+                transform: translateY(0px) rotate(-100deg);
+            }
+            100% {
+                transform: translateY(calc(100vh - 10px)) rotate(100deg);
+            }
+        }
+
+        @keyframes autumnfall2 {
+            0% {
+                transform: translateY(0px) rotate(100deg);
+            }
+            100% {
+                transform: translateY(calc(100vh - 10px)) rotate(-100deg);
+            }
+        }
+
+        /* Cloud animation */
+        @keyframes cloudMove {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100vw);
+            }
+        }
+        
+        #cloud {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 512px;
+            height: 256px;
+            background-image: url('images/cloud.png');
+            background-size: cover;
+            animation: cloudMove 30s linear infinite;
+            z-index: 0; /* Set z-index to position it behind other elements */
+        }
+    </style>
+</head>
+<body>
+    <h1>Beta test of my new website</h1>
+    
+    <div id="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+        <img id="navbarImage" src="images/leaf.png" alt="Autumn Leaf"> <!-- Updated image source -->
+    </div>
+    
+    <div id="about-container">
+        <h2>About</h2>
+        <p>Autumn test</p> <!-- Updated text -->
+    </div>
+    <button id="toggleSnowBtn" style="position: fixed; bottom: 10px; right: 10px;">Leaves are OFF</button> <!-- Updated button text -->
+    <input type="range" id="transparencySlider" min="0" max="1" step="0.1" value="0.7" style="position: fixed; bottom: 7px; right: 120px;"> <!-- Added slider -->
+    <div id="cloud"></div> <!-- Added cloud element -->
+    <script>
+        let autumnEnabled = false; // Updated variable name
+        let autumnLeaves = []; // Updated variable name
+        let leafImages = ['leaf1.png', 'leaf2.png', 'leaf3.png']; // Added leaf image list
+
+        function toggleAutumn() { // Updated function name
+            autumnEnabled = !autumnEnabled; // Updated variable name
+            let button = document.getElementById('toggleSnowBtn');
+
+            if (autumnEnabled) {
+                // Start the autumn effect
+                button.textContent = "Leaves are ON"; // Updated button text
+                createAutumnLeaves(); // Updated function name
+            } else {
+                // Stop the autumn effect
+                button.textContent = "Leaves are OFF"; // Updated button text
+                removeAutumnLeaves(); // Updated function name
+            }
+        }
+
+        toggleAutumn(); // Start the autumn effect by default
+        
+        document.getElementById('toggleSnowBtn').addEventListener('click', toggleAutumn);
+
+        function createAutumnLeaves() {
+            let transparency = document.getElementById('transparencySlider').value; // Get the value of the transparency slider
+            for (var i = 0; i < 50; i++) {
+                var autumnLeaf = document.createElement("div");
+                autumnLeaf.className = 'autumn-leaf'; // Add the class to the leaf
+                autumnLeaf.style.left = Math.random() * 100 + "%";
+                autumnLeaf.style.animationDuration = Math.random() * 5 + 5 + "s";
+                autumnLeaf.style.backgroundImage = `url('images/${leafImages[Math.floor(Math.random() * leafImages.length)]}')`;
+                autumnLeaf.style.opacity = transparency; // Set the opacity based on the slider value
+                document.body.appendChild(autumnLeaf);
+                autumnLeaves.push(autumnLeaf);
+            }
+        }
+
+        function removeAutumnLeaves() { // Updated function name
+            for (var i = 0; i < autumnLeaves.length; i++) {
+                document.body.removeChild(autumnLeaves[i]);
+            }
+            autumnLeaves = []; // Updated variable name
+        }
+
+        document.getElementById('transparencySlider').addEventListener('input', function() {
+            let transparency = this.value;
+            for (var i = 0; i < autumnLeaves.length; i++) {
+                autumnLeaves[i].style.opacity = transparency;
+            }
+        });
+    </script>
+</body>
+</html>

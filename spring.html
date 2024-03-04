@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hein Dijstelbloem</title>
+    <style>
+        body {
+            background: linear-gradient(180deg, #87ceeb, #eafaff, #eafaff, #ebc587);
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-y: scroll; /* Make the page scrollable */
+        }
+        
+        h1 {
+            color: #003366;
+            text-align: center;
+            margin-top: 50px;
+        }
+         #toggleSnowBtn {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+        #navbar {
+            background-color: #003366;
+            width: 800px; /* Updated width */
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            border-radius: 10px; /* Rounded corners */
+            padding: 10px; /* Add padding */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+            align-items: center; /* Align items vertically */
+        }
+        
+        #navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        #navbarImage {
+            margin-left: auto; /* Push the image to the right */
+            height: 50px; /* Adjust as needed */
+        }
+                
+        #about-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 50px auto;
+            width: 800px; /* Updated width */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #003366;
+            text-align: left;
+            margin-bottom: 20px;
+            margin-top: auto;
+        }
+        
+        p {
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        
+        /* Spring blossom effect */
+        .blossom-leaf {
+            position: absolute;
+            top: -10px;
+            width: 15px;
+            height: 10px;
+            background-color: #f5d0ff;
+            border-radius: 100%;
+            animation: blossomfall linear infinite;
+        }
+        
+        @keyframes blossomfall {
+            0% {
+                transform: translateY(0px) rotate(10deg); /* Add rotation */
+            }
+            100% {
+                transform: translateY(calc(100vh - 10px)) rotate(100deg); /* Add rotation */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Beta test of my new website</h1>
+    
+    <div id="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+        <img id="navbarImage" src="images/blossom-leaf.png" alt="Blossom Leaf">
+    </div>
+    
+    <div id="about-container">
+        <h2>About</h2>
+        <p>Blossom test</p>
+    </div>
+    <button id="toggleSnowBtn" style="position: fixed; bottom: 10px; right: 10px;">Toggle Blossom</button>
+    <script>
+        let blossomEnabled = false;
+        let blossomLeaves = [];
+
+        function toggleBlossom() {
+            blossomEnabled = !blossomEnabled;
+            let button = document.getElementById('toggleSnowBtn');
+
+            if (blossomEnabled) {
+                // Start the blossom effect
+                button.textContent = "Blossom is ON";
+                createBlossomLeaves();
+            } else {
+                // Stop the blossom effect
+                button.textContent = "Blossom is OFF";
+                removeBlossomLeaves();
+            }
+        }
+
+        toggleBlossom(); // Start the blossom effect by default
+        
+        document.getElementById('toggleSnowBtn').addEventListener('click', toggleBlossom);
+
+        function createBlossomLeaves() {
+            for (var i = 0; i < 50; i++) {
+                var blossomLeaf = document.createElement("div");
+                blossomLeaf.className = "blossom-leaf";
+                blossomLeaf.style.left = Math.random() * 100 + "%";
+                blossomLeaf.style.animationDuration = Math.random() * 5 + 5 + "s";
+                document.body.appendChild(blossomLeaf);
+                blossomLeaves.push(blossomLeaf);
+            }
+        }
+
+        function removeBlossomLeaves() {
+            for (var i = 0; i < blossomLeaves.length; i++) {
+                document.body.removeChild(blossomLeaves[i]);
+            }
+            blossomLeaves = [];
+        }
+    </script>
+</body>
+</html>
