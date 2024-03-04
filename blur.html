@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/blur.css">
 </head>
 <body>
+    <div id="cube"></div>
     <h1>Blur test</h1>
     <!-- dont forget!! -->
     <nav id="navbar">
@@ -40,50 +41,35 @@
     <button id="toggleSnowBtn" style="position: fixed; bottom: 10px; right: 10px;">Toggle Snow</button>
     <input type="range" id="transparencySlider" min="0" max="1" step="0.1" value="0.7" style="position: fixed; bottom: 7px; right: 120px;"> <!-- Added slider -->
     <div id="cloud"></div> <!-- cloud, forget this or fix? -->
-    <div class="blur"></div> <!-- Added blur element -->
-    <script>      
-        // random cubes
-        function generateRandomPosition() {
-            var positionX = Math.floor(Math.random() * (window.innerWidth / 2)); // Generate random X position between 0 and half of the window width
-            var positionY = Math.floor(Math.random() * (window.innerHeight / 2)); // Generate random Y position between 0 and half of the window height
-            return { x: positionX, y: positionY };
-        }
+    <script>
+        var ball = document.getElementById('cube');
+        var xPos = 100;
+        var yPos = 100; 
+        var xSpeed = 2; 
+        var ySpeed = 3; 
 
-        function generateRandomColor() {
-            var hue = Math.floor(Math.random() * 360); // Generate random hue value between 0 and 360
-            var saturation = 100; // Set saturation to 100%
-            var lightness = 50; // Set lightness to 50%
-            var color = 'hsl(' + hue + ', ' + saturation + '%, ' + lightness + '%)';
-            return color;
-        }
+        function animate() {
+            var width = window.innerWidth - ball.offsetWidth;
+            var height = window.innerHeight - ball.offsetHeight;
 
-        function createCubes() {
-            var numCubes = 10;
-            var background = document.getElementById('about-container'); // Change this to the appropriate container element
+            xPos += xSpeed;
+            yPos += ySpeed;
 
-            for (var i = 0; i < numCubes; i++) {
-                var cube = document.createElement('div');
-                cube.classList.add('cube');
-                var position = generateRandomPosition();
-                cube.style.left = position.x + 'px';
-                cube.style.top = position.y + 'px';
-                cube.style.backgroundColor = generateRandomColor(); // Set random color
-                cube.style.transition = 'background-color 2s ease-in-out'; // Add this line
-                background.appendChild(cube);
+            // collision detection, curtesy of some random guy on the internet
+            if (xPos > width || xPos < 0) {
+                xSpeed = -xSpeed;
             }
-        }
-        
-        function moveCubes() {
-            var cubes = document.getElementsByClassName('cube');
-            for (var i = 0; i < cubes.length; i++) {
-                var cube = cubes[i];
-                cube.style.animation = 'bounce 5s infinite'; // Add CSS animation for bouncing effect
-                cube.style.backgroundColor = generateRandomColor(); // Set random color
+
+            if (yPos > height || yPos < 0) {
+                ySpeed = -ySpeed;
             }
+
+            ball.style.left = xPos + 'px';
+            ball.style.top = yPos + 'px';
+
+            requestAnimationFrame(animate);
         }
-        
-        createCubes();
-        setInterval(moveCubes, 2000); // Move cubes every 2 seconds
+            animate();
     </script>
 </body>
 </html>

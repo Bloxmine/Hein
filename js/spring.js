@@ -54,11 +54,11 @@ let currentHour = new Date().getHours();
 if (currentHour >= 6 && currentHour < 12) {
     // Morning (6 to 12 H)
     document.body.style.background = "linear-gradient(#005AA7, #FFFDE4)";
-    document.querySelector('#navbar').style.backgroundColor = "rgba(0, 70, 140, 0.2)"; // 50% transparent
+    document.querySelector('#navbar').style.backgroundColor = "rgba(251, 217, 197, 0.5)";
 } else if (currentHour >= 12 && currentHour < 18) {
     // Afternoon (12 to 18 H)
     document.body.style.background = "linear-gradient(#87CEEB, #EAFAFF, #EAFAFF, #EBC587)";
-    document.querySelector('#navbar').style.backgroundColor = "rgba(0, 70, 140, 0.2)"; // 50% transparent
+    document.querySelector('#navbar').style.backgroundColor = "rgba(251, 217, 197, 0.5)";
 } else if (currentHour >= 18 && currentHour < 20) {
     // Evening (18 to 20 H)
     document.body.style.background = "linear-gradient(#00416A, #E4E5E6, #F5B415)";
