@@ -1,4 +1,4 @@
-/* this is the CSS file for the winter theme, such a mess! */
+/* this is the CSS file for the portfolio page, unused blocks are to be expected */
 body {
     height: 100vh;
     margin: 0;
@@ -9,6 +9,7 @@ body {
 
 h1 {
     text-align: center;
+    margin: 50px auto;
     font-size: 50px;
     font-family: 'Monument', Arial, Helvetica, sans-serif;
     text-shadow: 0px 0px 10px #ffffff;
@@ -112,6 +113,25 @@ h1 {
     animation: twinkle 1s linear infinite;
 }
 
+.airplane {
+    position: absolute;
+    top: -10px;
+    width: 3px;
+    height: 3px;
+    background-color: #ff0606;
+    border-radius: 50%;
+    animation: flash 1s linear infinite;
+}
+
+@keyframes flash {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.4), 0px 0px 20px rgba(0, 255, 0, 0.4), 0px 0px 30px rgba(0, 255, 0, 0.4);
+    }
+    20%, 24%, 55% {
+        box-shadow: none;
+    }
+}
+
 @keyframes twinkle {
     0%, 100% {
         opacity: 1;
@@ -141,6 +161,7 @@ h1 {
 
 #navbar {
     /* it's a mess! */
+    box-sizing: border-box;
     width: 800px; 
     margin: 0 auto;
     display: flex;
@@ -151,22 +172,49 @@ h1 {
     align-items: center; 
     position: relative;
     z-index: 2;
-    background-color: rgba(255, 255, 255, 0.5); 
+    background-color: rgba(255, 255, 255, 0.2); 
     /* because safari */
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
 }
 
 #navbar a {
     color: #ffffff;
+    font-family: 'MonumentNon', Arial, Helvetica, sans-serif;
     text-decoration: none;
     padding: 10px 20px;
     margin: 0 10px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 #navbar a:hover {
-    color: #d1eff7;
+    text-shadow: 0px 0px 10px #ffffff;
+}
+
+#navbar as:active {
+    color: #7fb3c2;
+}
+
+#navbarImage {
+    margin-left: auto;
+    height: 50px;
+    transition: transform 0.5s ease-in-out;
+}
+
+#navbarImage:hover {
+    transform: rotate(360deg);
+}
+
+#about-container {
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 50px auto;
+    width: 800px;
+    box-shadow: 0 0 50px #9ecaed;
+    position: relative;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
 }
 #navbar a:active {
     color: #7fb3c2;
@@ -183,6 +231,7 @@ h1 {
 }
 
 #about-container {
+    box-sizing: border-box;
     background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
@@ -194,6 +243,7 @@ h1 {
 }
 
 .portfolio-container {
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     background-color: #ffffff;
@@ -223,7 +273,6 @@ h1 {
 }
 
 h2 {
-    color: #f5b41c;
     color: #003366;
     text-align: left;
     margin-bottom: 20px;
@@ -285,5 +334,10 @@ p {
 @font-face {
     font-family: 'Monument';
     src: url(../fonts/Monument.woff) format('woff');
+    font-style: sans-serif;
+}
+@font-face {
+    font-family: 'MonumentNon';
+    src: url(../fonts/MonumentNon.woff) format('woff');
     font-style: sans-serif;
 }

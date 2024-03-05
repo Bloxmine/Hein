@@ -7,9 +7,7 @@
     <title>Hein Dijstelbloem</title>
 </head>
 <body>
-    <div id="title-container">
-        <h1>Portfolio&nbsp;</h1>
-    </div>
+        <h1>Portfolio</h1>
     <!-- dont forget!! -->
     <nav id="navbar">
         <a href="index.html">Home</a>
@@ -39,13 +37,12 @@
     <div id="spotlight-right"></div>
     <div id="skyline"></div>
     <div id="moon"></div>
-    <script>        
-        // Generate a random number between min and max
+    <script>  
+        // random number generator
         function getRandomNumber(min, max) {
             return Math.random() * (max - min) + min;
         }
 
-        // Create a star element
         function createStar() {
             const star = document.createElement('div');
             star.className = 'star';
@@ -54,16 +51,15 @@
             return star;
         }
 
-        // Add stars to the sky
         function addStarsToSky(numStars) {
-            const body = document.body; // Changed from 'skyline' to 'body'
+            const body = document.body;
             for (let i = 0; i < numStars; i++) {
                 const star = createStar();
-                body.appendChild(star); // Append the stars to the body
+                body.appendChild(star); // append them to the body
             }
         }
 
-        // Animate the stars to twinkle
+        // twinkle little star
         function animateStars() {
             const stars = document.getElementsByClassName('star');
             for (let i = 0; i < stars.length; i++) {
@@ -72,8 +68,7 @@
             }
         }
 
-        // Call the functions to generate and animate stars
-        addStarsToSky(50); // Change the number of stars as desired
+        addStarsToSky(50);
         animateStars();
     </script>
 </body>
