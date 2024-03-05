@@ -64,7 +64,7 @@ h1 {
 
 @keyframes flicker {
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
-        text-shadow: 0px 0px 10px #ffffff, 0px 0px 20px #ffffff, 0px 0px 30px #ffffff;
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4), 0px 0px 20px rgba(255, 255, 255, 0.4), 0px 0px 30px rgba(255, 255, 255, 0.4);
     }
     20%, 24%, 55% {
         text-shadow: none;
@@ -103,7 +103,7 @@ h1 {
 }
 
 .star {
-    position: absolute;
+    position: fixed;
     top: -10px;
     width: 3px;
     height: 3px;
@@ -285,5 +285,5 @@ p {
 @font-face {
     font-family: 'Monument';
     src: url(../fonts/Monument.woff) format('woff');
-    font-style: italic;
+    font-style: sans-serif;
 }
