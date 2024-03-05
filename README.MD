@@ -4,7 +4,7 @@ This is the markdown readme for my new website.
 
 ## About
 
-I am Hein Dijstelbloem, a 22-year-old web developer from Helmond. This website serves as a showcase of my projects and a platform for me to learn more about web development.
+This website serves as a showcase of my projects and a platform for me to learn more about web development.
 
 ## What you'll find here
 
