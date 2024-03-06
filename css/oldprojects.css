@@ -78,7 +78,7 @@ h1 {
     width: 200px;
     height: 400px;
     background-color: #ffffff;
-    animation: rotateing 10s ease-in-out infinite;
+    animation: rotateing 50s ease-in-out infinite;
 }
 
 @keyframes rotateing {
@@ -172,9 +172,10 @@ h1 {
     text-shadow: 0px 0px 10px #ffffff;
 }
 
-#navbar as:active {
-    color: #7fb3c2;
+#navbar a:active {
+    color: #bfbfbf;
 }
+
 
 #navbarImage {
     margin-left: auto;
@@ -197,9 +198,6 @@ h1 {
     position: relative;
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
     z-index: 2;
-}
-#navbar a:active {
-    color: #7fb3c2;
 }
 
 #navbarImage {

@@ -8,6 +8,7 @@ body {
 
 h1 {
     text-align: center;
+    margin: 50px auto;
     font-size: 50px;
     font-family: 'Monument', Arial, Helvetica, sans-serif;
     text-shadow: 0px 0px 10px #ffffff;
@@ -64,15 +65,17 @@ h1 {
 
 #navbar a {
     color: #ffffff;
+    font-family: 'MonumentNon', Arial, Helvetica, sans-serif;
     text-decoration: none;
     padding: 10px 20px;
     margin: 0 10px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 #navbar a:hover {
-    color: #d1eff7;
+    text-shadow: 0px 0px 10px #ffffff;
 }
+
 #navbar a:active {
     color: #7fb3c2;
 }
@@ -130,7 +133,6 @@ h1 {
 }
 
 h2 {
-    color: #f5b41c;
     color: #003366;
     text-align: left;
     margin-bottom: 20px;
@@ -192,5 +194,10 @@ p {
 @font-face {
     font-family: 'Monument';
     src: url(../fonts/Monument.woff) format('woff');
+    font-style: sans-serif;
+}
+@font-face {
+    font-family: 'MonumentNon';
+    src: url(../fonts/MonumentNon.woff) format('woff');
     font-style: sans-serif;
 }

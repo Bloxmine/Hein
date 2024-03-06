@@ -3,7 +3,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Montreal', Arial, Helvetica, sans-serif;
-    overflow-y: scroll; 
+    overflow-y: auto;
     background: linear-gradient(180deg, #000000 0%, #000033 50%, #000066 100%);
 }
 
@@ -191,8 +191,8 @@ h1 {
     text-shadow: 0px 0px 10px #ffffff;
 }
 
-#navbar as:active {
-    color: #7fb3c2;
+#navbar a:active {
+    color: #bfbfbf;
 }
 
 #navbarImage {
@@ -215,9 +215,6 @@ h1 {
     box-shadow: 0 0 50px #9ecaed;
     position: relative;
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
-}
-#navbar a:active {
-    color: #7fb3c2;
 }
 
 #navbarImage {

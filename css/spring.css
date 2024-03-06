@@ -1,58 +1,95 @@
 body {
     height: 100vh;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-y: scroll;
+    font-family: 'Montreal', Arial, Helvetica, sans-serif;
+    overflow-y: scroll; 
 }
 
 h1 {
-    color: #002066;
     text-align: center;
-    margin-top: 50px;
+    font-size: 50px;
+    font-family: 'Monument', Arial, Helvetica, sans-serif;
+    text-shadow: 0px 0px 10px #ffffff;
 }
+
+.heinimage {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    pointer-events: none;
+    background-image: url('../images/hein.png');
+    background-size: cover;
+    z-index: 0;
+}
+
  #toggleSnowBtn {
     position: fixed;
     bottom: 10px;
     right: 10px;
 }
 #navbar {
-    width: 800px;
+    /* it's a mess! */
+    box-sizing: border-box;
+    width: 800px; 
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    align-items: center;
+    border-radius: 10px; 
+    padding: 10px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    align-items: center; 
     position: relative;
     z-index: 2;
+    background-color: rgba(255, 255, 255, 0.5); 
+    /* because safari */
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 }
 
 #navbar a {
     color: #ffffff;
+    font-family: 'MonumentNon', Arial, Helvetica, sans-serif;
     text-decoration: none;
     padding: 10px 20px;
     margin: 0 10px;
-    font-size: 20px;
+    font-size: 18px;
 }
+
+#navbar a:hover {
+    text-shadow: 0px 0px 10px #ffffff;
+}
+
+#navbar a:active {
+    color: #7fb3c2;
+}
+
 #navbarImage {
     margin-left: auto;
     height: 50px;
+    transition: transform 0.5s ease-in-out;
+}
+
+#navbarImage:hover {
+    transform: rotate(360deg);
 }
         
 #about-container {
+    box-sizing: border-box;
     background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
     margin: 50px auto;
     width: 800px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 50px #9ecaed;
+    position: relative;
     z-index: 1;
 }
 
+
 .portfolio-container {
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     background-color: #ffffff;
@@ -60,7 +97,7 @@ h1 {
     padding: 20px;
     margin: 50px auto;
     width: 800px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 50px #9ecaed;
     position: relative;
     z-index: 1;
 }
@@ -148,4 +185,20 @@ p {
     background-size: cover;
     animation: cloudMove 30s linear infinite;
     z-index: 0;
+}
+
+@font-face {
+    font-family: 'Montreal';
+    src: url(../fonts/Montreal.woff) format('woff');
+    font-style: sans-serif;
+}
+@font-face {
+    font-family: 'Monument';
+    src: url(../fonts/Monument.woff) format('woff');
+    font-style: sans-serif;
+}
+@font-face {
+    font-family: 'MonumentNon';
+    src: url(../fonts/MonumentNon.woff) format('woff');
+    font-style: sans-serif;
 }
