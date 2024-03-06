@@ -3,18 +3,19 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Montreal', Arial, Helvetica, sans-serif;
-    overflow-y: scroll; 
+    overflow: hidden;
     background-color: #000000;
 }
 
 h1 {
+    position: relative;
+    z-index: 3;
     text-align: center;
     margin: 50px auto;
     font-size: 50px;
     font-family: 'Monument', Arial, Helvetica, sans-serif;
     text-shadow: 0px 0px 10px #ffffff;
     color: white;
-    z-index: 2;
 }
 
 @keyframes flicker {
@@ -58,11 +59,11 @@ h1 {
 }
 
 .blur-box {
-    position: absolute; /* Change this line */
-    top: 0; /* Add this line */
-    right: 0; /* Add this line */
-    bottom: 0; /* Add this line */
-    left: 0; /* Add this line */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     -webkit-backdrop-filter: blur(150px);
     backdrop-filter: blur(150px);
     height: 100vh;
