@@ -3,8 +3,9 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Montreal', Arial, Helvetica, sans-serif;
-    overflow: hidden;
+    overflow-y: scroll;
     background-color: #000000;
+    transition: background-color 1s;
 }
 
 h1 {
@@ -59,17 +60,16 @@ h1 {
 }
 
 .blur-box {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
-    bottom: 0;
     left: 0;
     -webkit-backdrop-filter: blur(150px);
     backdrop-filter: blur(150px);
     height: 100vh;
     width: 100vw;
     z-index: 1;
-    background-color: rgba(45, 45, 45, 0.5);
+    background-color: rgba(45, 45, 45, 0.1);
 }
 
 .star {

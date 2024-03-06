@@ -6,9 +6,8 @@
     <link rel="stylesheet" href="css/oldprojects.css">
     <title>Hein Dijstelbloem</title>
 </head>
-<body>
+<body id="body">
         <h1>First week projects</h1>
-    <!-- dont forget!! -->
     <nav id="navbar">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -17,6 +16,23 @@
         <img id="navbarImage">
     </nav>
     
+    <div id="about-container">
+        <h2>First week projects</h2>
+        <p>This portfolio is a means to showcase some of my personal web and design related projects. The website itself is part of my portfolio, because it is a showcase of my javascript experiments. The seasons you see in the background for example, those aren't from some library, I've been working on them as a challenge.</p>
+        <p>These projects have been divided into three 'eras' </p>
+    </div>
+
+    <div id="about-container">
+        <h2>First week projects</h2>
+        <p>This portfolio is a means to showcase some of my personal web and design related projects. The website itself is part of my portfolio, because it is a showcase of my javascript experiments. The seasons you see in the background for example, those aren't from some library, I've been working on them as a challenge.</p>
+        <p>These projects have been divided into three 'eras' </p>
+    </div>
+
+    <div id="about-container">
+        <h2>First week projects</h2>
+        <p>This portfolio is a means to showcase some of my personal web and design related projects. The website itself is part of my portfolio, because it is a showcase of my javascript experiments. The seasons you see in the background for example, those aren't from some library, I've been working on them as a challenge.</p>
+        <p>These projects have been divided into three 'eras' </p>
+    </div>
     <div id="about-container">
         <h2>First week projects</h2>
         <p>This portfolio is a means to showcase some of my personal web and design related projects. The website itself is part of my portfolio, because it is a showcase of my javascript experiments. The seasons you see in the background for example, those aren't from some library, I've been working on them as a challenge.</p>
@@ -31,9 +47,9 @@
         }
 
         function getRandomColor() {
-            const hue = Math.random() * 360; // Generate a random hue value between 0 and 360
-            const saturation = 100; // you can randomize this if you want
-            const lightness = 50; // you can randomize this if you want
+            const hue = Math.random() * 360;
+            const saturation = 100; 
+            const lightness = 50;
             return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
         }
 
@@ -42,7 +58,7 @@
             star.className = 'star';
             star.style.left = `${getRandomNumber(0, 100)}%`;
             star.style.top = `${getRandomNumber(0, 50)}%`;
-            star.style.backgroundColor = getRandomColor(); // Set random color
+            star.style.backgroundColor = getRandomColor();
             return star;
         }
 
@@ -65,6 +81,20 @@
 
         addStarsToSky(25);
         animateStars();
+
+        window.addEventListener('scroll', function() {
+            let scrollPosition = window.scrollY;
+            let stars = document.querySelectorAll('.star');
+            let startOpacity = 1;
+            let endOpacity = 0;
+            let startScroll = 0;
+            let endScroll = document.body.scrollHeight - window.innerHeight;
+            let opacityValue = startOpacity + (endOpacity - startOpacity) * ((scrollPosition - startScroll) / (endScroll - startScroll));
+
+            stars.forEach(star => {
+                star.style.opacity = opacityValue;
+            });
+        });
     </script>
 </body>
 </html>
