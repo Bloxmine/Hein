@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/oldprojects.css">
     <title>Hein Dijstelbloem</title>
 </head>
 <body>
-        <h1>Portfolio</h1>
+        <h1>First week projects</h1>
     <!-- dont forget!! -->
     <nav id="navbar">
         <a href="index.html">Home</a>
@@ -18,30 +18,23 @@
     </nav>
     
     <div id="about-container">
-        <h2>About this portfolio</h2>
+        <h2>New projects</h2>
         <p>This portfolio is a means to showcase some of my personal web and design related projects. The website itself is part of my portfolio, because it is a showcase of my javascript experiments. The seasons you see in the background for example, those aren't from some library, I've been working on them as a challenge.</p>
         <p>These projects have been divided into three 'eras' </p>
     </div>
-    <div class="portfolio-container">
-        <a href="oldprojects.html" class="box">
-            <div><h2>My old projects</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
-        </a>
-        <a href="firstweek.html" class="box">
-            <div><h2>First week projects</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
-        </a>
-        <a href="newprojects.html" class="box">
-            <div><h2>New projects</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
-        </a>
-    </div>
     <!-- bg elements -->
-    <div id="spotlight-left"></div>
-    <div id="spotlight-right"></div>
-    <div id="skyline"></div>
-    <div id="moon"></div>
-    <script>  
+    <div class="blur-box"></div>
+    <script>
         // random number generator
         function getRandomNumber(min, max) {
             return Math.random() * (max - min) + min;
+        }
+
+        function getRandomColor() {
+            const hue = Math.random() * 360; // Generate a random hue value between 0 and 360
+            const saturation = 100; // you can randomize this if you want
+            const lightness = 50; // you can randomize this if you want
+            return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
         }
 
         function createStar() {
@@ -49,6 +42,7 @@
             star.className = 'star';
             star.style.left = `${getRandomNumber(0, 100)}%`;
             star.style.top = `${getRandomNumber(0, 50)}%`;
+            star.style.backgroundColor = getRandomColor(); // Set random color
             return star;
         }
 
@@ -69,7 +63,7 @@
             }
         }
 
-        addStarsToSky(50);
+        addStarsToSky(25);
         animateStars();
     </script>
 </body>
