@@ -8,13 +8,15 @@ body {
 }
 
 h1 {
+    position: relative;
+    z-index: 3;
     text-align: center;
     margin: 50px auto;
     font-size: 50px;
     font-family: 'Monument', Arial, Helvetica, sans-serif;
     text-shadow: 0px 0px 10px #ffffff;
-    animation: flicker 2.5s infinite;
     color: white;
+    animation : flicker 3s infinite;
 }
 
 #spotlight-left {
@@ -195,16 +197,6 @@ h1 {
     color: #bfbfbf;
 }
 
-#navbarImage {
-    margin-left: auto;
-    height: 50px;
-    transition: transform 0.5s ease-in-out;
-}
-
-#navbarImage:hover {
-    transform: rotate(360deg);
-}
-
 #about-container {
     box-sizing: border-box;
     background-color: #ffffff;
@@ -215,16 +207,6 @@ h1 {
     box-shadow: 0 0 50px #9ecaed;
     position: relative;
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
-}
-
-#navbarImage {
-    margin-left: auto;
-    height: 50px;
-    transition: transform 0.5s ease-in-out;
-}
-
-#navbarImage:hover {
-    transform: rotate(360deg);
 }
 
 #about-container {

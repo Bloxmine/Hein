@@ -22,25 +22,52 @@
         <p>These projects have been divided into three 'eras' </p>
     </div>
 
-    <div id="about-container">
-        <h2>First week projects</h2>
-        <p>This portfolio is a means to showcase some of my personal web and design related projects. The website itself is part of my portfolio, because it is a showcase of my javascript experiments. The seasons you see in the background for example, those aren't from some library, I've been working on them as a challenge.</p>
-        <p>These projects have been divided into three 'eras' </p>
+    <div class="portfolio-container">
+        <a href="firstweek.html" class="box">
+            <div><h2>Businnesscard</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+        </a>
+        <a href="firstweek.html" class="box">
+            <div><h2>Paper prototype</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+        </a>
+        <a href="newprojects.html" class="box">
+            <div><h2>Portrait</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+        </a>
+        <a href="googlesux.html" class="box">
+            <div><h2>Google but bad UX</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+            <img src="../images/portfolio/googlesux.png" alt="Google" class="box-image">
+        </a>
+        <a href="binggood.html" class="box">
+            <div><h2>Bing but good UX</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+            <img src="../images/portfolio/binggood.png" alt="Bing" class="box-image">
+        </a>
     </div>
-
-    <div id="about-container">
-        <h2>First week projects</h2>
-        <p>This portfolio is a means to showcase some of my personal web and design related projects. The website itself is part of my portfolio, because it is a showcase of my javascript experiments. The seasons you see in the background for example, those aren't from some library, I've been working on them as a challenge.</p>
-        <p>These projects have been divided into three 'eras' </p>
-    </div>
-    <div id="about-container">
-        <h2>First week projects</h2>
-        <p>This portfolio is a means to showcase some of my personal web and design related projects. The website itself is part of my portfolio, because it is a showcase of my javascript experiments. The seasons you see in the background for example, those aren't from some library, I've been working on them as a challenge.</p>
-        <p>These projects have been divided into three 'eras' </p>
+    <div class="portfolio-container">
+        <a href="binggood.html" class="box">
+            <div>
+                <h2>Good UX bad UX</h2>
+                <p>These contain projects I'm proud of which I've made over the years.</p>
+            </div>
+            <img src="../images/lancia.jpg" alt="Good UX bad UX" class="box-image">
+        </a>
+        <a href="firstweek.html" class="box">
+            <div>
+                <h2>Businnesscard</h2>
+                <p>These contain projects I'm proud of which I've made over the years.</p>
+            </div>
+            <img src="path_to_your_image.jpg" alt="Business Card" class="box-image">
+        </a>
+        <a href="newprojects.html" class="box">
+            <div>
+                <h2>Portrait</h2>
+                <p>These contain projects I'm proud of which I've made over the years.</p>
+            </div>
+            <img src="path_to_your_image.jpg" alt="Portrait" class="box-image">
+        </a>
     </div>
     <!-- bg elements -->
     <div class="blur-box"></div>
     <script>
+        // these are called 'stars' but I've reused my code to turn them into glowy squares
         // random number generator
         function getRandomNumber(min, max) {
             return Math.random() * (max - min) + min;
@@ -81,7 +108,7 @@
 
         addStarsToSky(25);
         animateStars();
-
+        // this is the code for scrolling, might be better to set a fixed point for the squares to start fading out? now it's determined by the height of the page
         window.addEventListener('scroll', function() {
             let scrollPosition = window.scrollY;
             let stars = document.querySelectorAll('.star');
