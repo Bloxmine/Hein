@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/experiments.css">
+    <title>Hein Dijstelbloem</title>
+</head>
+<body id="body">
+        <h1>First week projects</h1>
+    <nav id="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="portfolio.html">Portfolio</a>
+        <img id="navbarImage">
+    </nav>
+    
+    <div id="about-container">
+        <h2>First week projects</h2>
+        <p>This portfolio is a means to showcase some of my personal web and design related projects. The website itself is part of my portfolio, because it is a showcase of my javascript experiments. The seasons you see in the background for example, those aren't from some library, I've been working on them as a challenge.</p>
+        <p>These projects have been divided into three 'eras' </p>
+    </div>
+    <div id="check-container">
+
+    </div>
+    <div class="portfolio-container">
+        <a href="firstweek.html" class="box">
+            <div><h2>Businness card</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+            <img src="../images/portfolio/card.jpg" alt="Business card" class="box-image">
+        </a>
+        <a href="firstweek.html" class="box">
+            <div><h2>Paper prototype</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+        </a>
+        <a href="newprojects.html" class="box">
+            <div><h2>Portrait</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+        </a>
+        <a href="googlesux.html" class="box">
+            <div><h2>Google but bad UX</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+            <img src="../images/portfolio/googlesux.png" alt="Google" class="box-image">
+        </a>
+        <a href="binggood.html" class="box">
+            <div><h2>Bing but good UX</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+            <img src="../images/portfolio/binggood.png" alt="Bing" class="box-image">
+        </a>
+    </div>
+    <div class="portfolio-container">
+        <a href="binggood.html" class="box">
+            <div>
+                <h2>Test 1</h2>
+                <p>These contain projects I'm proud of which I've made over the years.</p>
+            </div>
+            <img src="../images/lancia.jpg" alt="Good UX bad UX" class="box-image">
+        </a>
+        <a href="firstweek.html" class="box">
+            <div>
+                <h2>Businnesscard</h2>
+                <p>These contain projects I'm proud of which I've made over the years.</p>
+            </div>
+            <img src="../images/lancia.jpg" alt="Business Card" class="box-image">
+        </a>
+        <a href="newprojects.html" class="box">
+            <div>
+                <h2>Portrait</h2>
+                <p>These contain projects I'm proud of which I've made over the years.</p>
+            </div>
+            <img src="../images/lancia.jpg" alt="Portrait" class="box-image">
+        </a>
+    </div>
+    <!-- bg elements -->
+    <div class="blur-box"></div>
+    <script>
+        // these are called 'stars' but I've reused my code to turn them into glowy squares
+        // random number generator
+        function getRandomNumber(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function getRandomColor() {
+            const hue = Math.random() * 360;
+            const saturation = 100; 
+            const lightness = 50;
+            return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        }
+
+        function createStar() {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${getRandomNumber(0, 100)}%`;
+            star.style.top = `${getRandomNumber(0, 50)}%`;
+            star.style.backgroundColor = getRandomColor();
+            return star;
+        }
+
+        function addStarsToSky(numStars) {
+            const body = document.body;
+            for (let i = 0; i < numStars; i++) {
+                const star = createStar();
+                body.appendChild(star); // append them to the body
+            }
+        }
+
+        // twinkle little star
+        function animateStars() {
+            const stars = document.getElementsByClassName('star');
+            for (let i = 0; i < stars.length; i++) {
+                const star = stars[i];
+                star.style.animationDelay = `${getRandomNumber(0, 5)}s`;
+            }
+        }
+
+        addStarsToSky(25);
+        animateStars();
+        // this is the code for scrolling, might be better to set a fixed point for the squares to start fading out? now it's determined by the height of the page
+        window.addEventListener('scroll', function() {
+            let scrollPosition = window.scrollY;
+            let stars = document.querySelectorAll('.star');
+            let startOpacity = 1;
+            let endOpacity = 0;
+            let startScroll = 0;
+            let endScroll = document.body.scrollHeight - window.innerHeight;
+            let opacityValue = startOpacity + (endOpacity - startOpacity) * ((scrollPosition - startScroll) / (endScroll - startScroll));
+
+            stars.forEach(star => {
+                star.style.opacity = opacityValue;
+            });
+        });
+        let container = document.getElementById('check-container');
+
+        let numberOfCheckboxes = 5;
+
+        for (let i = 0; i < numberOfCheckboxes; i++) {
+            let checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.className = 'checkbox'; // class instead of id for multiple elements
+
+            container.appendChild(checkbox);
+        }
+    </script>
+</body>
+</html>

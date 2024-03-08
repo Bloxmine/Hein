@@ -1,0 +1,320 @@
+/* this is the CSS file for the portfolio page, unused blocks are to be expected */
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: 'Montreal', Arial, Helvetica, sans-serif;
+    overflow-y: scroll;
+    background-color: #000000;
+    transition: background-color 1s;
+}
+
+h1 {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    margin: 50px auto;
+    font-size: 50px;
+    font-family: 'Monument', Arial, Helvetica, sans-serif;
+    text-shadow: 0px 0px 10px #ffffff;
+    color: white;
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4), 0px 0px 20px rgba(255, 255, 255, 0.4), 0px 0px 30px rgba(255, 255, 255, 0.4);
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+#checkbox {
+    background-color: red;
+}
+
+#skyline {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 200px;
+    background-image: url('../images/skyline.png');
+    background-repeat: repeat-x;
+    z-index: 0;
+}
+
+#moon {
+    position: fixed;
+    top: 10vh;
+    left: 10vw;
+    width: 150px;
+    height: 150px;
+    background-image: url('../images/moon.png');
+    z-index: 1;
+    animation: fadeInOut 5s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.blur-box {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    -webkit-backdrop-filter: blur(150px);
+    backdrop-filter: blur(150px);
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    background-color: rgba(45, 45, 45, 0.1);
+}
+
+.star {
+    position: fixed;
+    top: -10px;
+    width: 200px;
+    height: 400px;
+    background-color: #ffffff;
+    animation: rotateing 50s ease-in-out infinite;
+}
+
+@keyframes rotateing {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.5);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.airplane {
+    position: absolute;
+    top: -10px;
+    width: 3px;
+    height: 3px;
+    background-color: #ff0606;
+    border-radius: 50%;
+    animation: flash 1s linear infinite;
+}
+
+@keyframes flash {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.4), 0px 0px 20px rgba(0, 255, 0, 0.4), 0px 0px 30px rgba(0, 255, 0, 0.4);
+    }
+    20%, 24%, 55% {
+        box-shadow: none;
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+
+#title-container {
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 10px;
+    padding: 5px;
+    margin: 50px auto;
+    width: 200px;
+    position: relative;
+    z-index: 2;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+#toggleSnowBtn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+#navbar {
+    /* it's a mess! */
+    box-sizing: border-box;
+    width: 800px; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px; 
+    padding: 10px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    align-items: center; 
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.2); 
+    /* because safari */
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
+
+#navbar a {
+    color: #ffffff;
+    font-family: 'MonumentNon', Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+#navbar a:hover {
+    text-shadow: 0px 0px 10px #ffffff;
+}
+
+#navbar a:active {
+    color: #bfbfbf;
+}
+
+#about-container {
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 50px auto;
+    width: 800px;
+    box-shadow: 0 0 50px #ffffff;
+    position: relative;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+    z-index: 2;
+}
+
+#check-container {
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 50px auto;
+    width: 800px;
+    box-shadow: 0 0 50px #ffffff;
+    position: relative;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+    z-index: 2;
+}
+
+.portfolio-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 50px auto;
+    width: 800px;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio-container .box {
+    flex: 1 0 calc(33.333% - 20px);
+    margin: 10px;
+    background-image: linear-gradient(#c3e0f8, #ffffff);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    text-decoration: none;
+}
+
+.portfolio-container .box .box-image {
+    position: relative;
+    flex: 1 0 auto;
+    order: 2;
+    margin-top: 10px;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.portfolio-container .box:hover {
+    transform: scale(1.1);
+    background-image: linear-gradient(#9dcdf5, #ffffff)
+}
+
+h2 {
+    color: #000000;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: auto;
+}
+
+p {
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+/* Snow effect */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(calc(100vh - 10px)); /* pile up at the bottom, at least, that's the point */
+    }
+}
+
+/* cloud animation */
+@keyframes cloudMove {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+#cloud {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 512px;
+    height: 256px;
+    background-image: url('images/cloud.png');
+    background-size: cover;
+    animation: cloudMove 30s linear infinite;
+    z-index: 0;
+}
+
+@font-face {
+    font-family: 'Montreal';
+    src: url(../fonts/Montreal.woff) format('woff');
+    font-style: sans-serif;
+}
+@font-face {
+    font-family: 'Monument';
+    src: url(../fonts/Monument.woff) format('woff');
+    font-style: sans-serif;
+}
+@font-face {
+    font-family: 'MonumentNon';
+    src: url(../fonts/MonumentNon.woff) format('woff');
+    font-style: sans-serif;
+}
