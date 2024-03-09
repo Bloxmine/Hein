@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box sorting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="box1-check" onchange="toggleBoxes('box1')"> Box 1
+        <input type="checkbox" id="box2-check" onchange="toggleBoxes('box2')"> Box 2
+    </div>
+    <div id="box1" class="box box1">Box 1</div>
+    <div id="box2" class="box box2">Box 2</div>
+    <script>
+        function toggleBoxes(boxClass) {
+            var checkBox = document.getElementById(boxClass + "-check");
+            var boxes = document.getElementsByClassName(boxClass);
+            for (var i = 0; i < boxes.length; i++) {
+                if (checkBox.checked) {
+                    boxes[i].classList.remove('hidden');
+                } else {
+                    boxes[i].classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
