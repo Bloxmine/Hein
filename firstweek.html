@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/oldprojects.css">
+    <link rel="stylesheet" href="css/experiments.css">
     <title>Hein Dijstelbloem</title>
 </head>
 <body id="body">
@@ -21,43 +21,52 @@
         <p>This portfolio is a means to showcase some of my personal web and design related projects. The website itself is part of my portfolio, because it is a showcase of my javascript experiments. The seasons you see in the background for example, those aren't from some library, I've been working on them as a challenge.</p>
         <p>These projects have been divided into three 'eras' </p>
     </div>
-
+    <div id="about-container">
+        <input type="checkbox" id="box1-check" onchange="toggleBoxes('box1')" checked> Interactive Media Products
+        <input type="checkbox" id="box2-check" onchange="toggleBoxes('box2')" checked> Development and Version control
+        <input type="checkbox" id="box3-check" onchange="toggleBoxes('box3')" checked>  Interative design
+        <input type="checkbox" id="box4-check" onchange="toggleBoxes('box4')" checked> Professional standards
+        <input type="checkbox" id="box5-check" onchange="toggleBoxes('box5')" checked> Personal Leadership
+        <input type="checkbox" id="box6-check" onchange="toggleBoxes('box6')" checked> Research
+        <input type="checkbox" id="box7-check" onchange="toggleBoxes('box7')" checked> Communication
+        <input type="checkbox" id="box8-check" onchange="toggleBoxes('box8')" checked> Professional Identity
+    </div>
     <div class="portfolio-container">
-        <a href="firstweek.html" class="box">
+        <a href="firstweek.html" class="box box1">
             <div><h2>Businness card</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
             <img src="../images/portfolio/card.jpg" alt="Business card" class="box-image">
         </a>
-        <a href="firstweek.html" class="box">
+        <a href="firstweek.html" class="box box2">
             <div><h2>Paper prototype</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
         </a>
-        <a href="newprojects.html" class="box">
+        <a href="newprojects.html" class="box box3">
             <div><h2>Portrait</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
         </a>
-        <a href="googlesux.html" class="box">
+        <a href="googlesux.html" class="box box4">
             <div><h2>Google but bad UX</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
             <img src="../images/portfolio/googlesux.png" alt="Google" class="box-image">
         </a>
-        <a href="binggood.html" class="box">
+        <a href="binggood.html" class="box box5">
             <div><h2>Bing but good UX</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
             <img src="../images/portfolio/binggood.png" alt="Bing" class="box-image">
         </a>
     </div>
     <div class="portfolio-container">
-        <a href="binggood.html" class="box">
+        <a href="binggood.html" class="box box6">
             <div>
                 <h2>Test 1</h2>
                 <p>These contain projects I'm proud of which I've made over the years.</p>
             </div>
             <img src="../images/lancia.jpg" alt="Good UX bad UX" class="box-image">
         </a>
-        <a href="firstweek.html" class="box">
+        <a href="firstweek.html" class="box box7">
             <div>
                 <h2>Businnesscard</h2>
                 <p>These contain projects I'm proud of which I've made over the years.</p>
             </div>
             <img src="../images/lancia.jpg" alt="Business Card" class="box-image">
         </a>
-        <a href="newprojects.html" class="box">
+        <a href="newprojects.html" class="box box8">
             <div>
                 <h2>Portrait</h2>
                 <p>These contain projects I'm proud of which I've made over the years.</p>
@@ -123,6 +132,27 @@
                 star.style.opacity = opacityValue;
             });
         });
+        // this is the code for the checkboxes
+        function toggleBoxes(boxClass) {
+            let checkBox = document.getElementById(boxClass + "-check");
+            let boxes = document.getElementsByClassName(boxClass);
+            for (let i = 0; i < boxes.length; i++) {
+                if (checkBox.checked) {
+                    boxes[i].classList.remove('hidden');
+                    boxes[i].classList.remove('box-gone');
+                    boxes[i].classList.add('visible');
+                } else {
+                    boxes[i].classList.remove('visible');
+                    boxes[i].classList.add('hidden');
+                    // this is a bit of a hack, but it works
+                    setTimeout(function() {
+                        if (boxes[i].classList.contains('hidden')) {
+                            boxes[i].classList.add('box-gone');
+                        }
+                    }, 500);
+                }
+            }
+        }
     </script>
 </body>
 </html>
