@@ -132,14 +132,17 @@
                 star.style.opacity = opacityValue;
             });
         });
-        // this is the code for the checkboxes
+        import Flipping from 'flipping';
+
+        const flipping = new Flipping();
+
         function toggleBoxes(boxClass) {
             let checkBox = document.getElementById(boxClass + "-check");
-            let boxes = document.getElementsByClassName(boxClass);
+            let boxes = document.querySelectorAll('.box.' + boxClass);
+            flipping.read(); // read the initial positions before changes
             for (let i = 0; i < boxes.length; i++) {
                 if (checkBox.checked) {
                     boxes[i].classList.remove('hidden');
-                    boxes[i].classList.remove('box-gone');
                     boxes[i].classList.add('visible');
                 } else {
                     boxes[i].classList.remove('visible');
@@ -152,6 +155,7 @@
                     }, 500);
                 }
             }
+            flipping.flip(); // animate the changes
         }
     </script>
 </body>
