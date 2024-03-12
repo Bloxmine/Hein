@@ -76,6 +76,7 @@
     </div>
     <!-- bg elements -->
     <div class="blur-box"></div>
+    <script src="https://unpkg.com/flipping@latest/dist/flipping.js"></script>
     <script>
         // these are called 'stars' but I've reused my code to turn them into glowy squares
         // random number generator
@@ -132,17 +133,17 @@
                 star.style.opacity = opacityValue;
             });
         });
-        import Flipping from 'flipping';
-
         const flipping = new Flipping();
 
+        // this is the code for the checkboxes
         function toggleBoxes(boxClass) {
             let checkBox = document.getElementById(boxClass + "-check");
-            let boxes = document.querySelectorAll('.box.' + boxClass);
-            flipping.read(); // read the initial positions before changes
+            let boxes = document.getElementsByClassName(boxClass);
+            flipping.read();
             for (let i = 0; i < boxes.length; i++) {
                 if (checkBox.checked) {
                     boxes[i].classList.remove('hidden');
+                    boxes[i].classList.remove('box-gone');
                     boxes[i].classList.add('visible');
                 } else {
                     boxes[i].classList.remove('visible');
@@ -155,7 +156,7 @@
                     }, 500);
                 }
             }
-            flipping.flip(); // animate the changes
+            flipping.write();
         }
     </script>
 </body>

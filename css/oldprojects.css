@@ -1,10 +1,29 @@
-/* this is the CSS file for the portfolio page, unused blocks are to be expected */
+/* this is the CSS file for the other projects pages, unused blocks are to be expected */
+:root {
+    --font-family-primary: 'Montreal', Arial, Helvetica, sans-serif;
+    --font-family-secondary: 'Monument', Arial, Helvetica, sans-serif;
+    --font-family-tertiary: 'MonumentNon', Arial, Helvetica, sans-serif;
+    --background-color-primary: #000000;
+    --background-color-secondary: rgba(0, 0, 0, 0.5);
+    --background-color-tertiary: rgba(255, 255, 255, 0.2);
+    --text-color-primary: white;
+    --text-color-secondary: #ffffff;
+    --text-color-tertiary: #bfbfbf;
+    --box-shadow-color: rgba(255, 255, 255, 0.5);
+    --box-shadow-blur: 10px;
+    --blur-box-background-color: rgba(45, 45, 45, 0.1);
+    /* stars, but they're squares, because of my code */
+    --star-background-color: #ffffff;
+    --twinkle-opacity-primary: 1;
+    --twinkle-opacity-secondary: 0.5;
+}
+
 body {
     height: 100vh;
     margin: 0;
-    font-family: 'Montreal', Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-primary);
     overflow-y: scroll;
-    background-color: #000000;
+    background-color: var(--background-color-primary);
     transition: background-color 1s;
 }
 
@@ -14,9 +33,9 @@ h1 {
     text-align: center;
     margin: 50px auto;
     font-size: 50px;
-    font-family: 'Monument', Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-secondary);
     text-shadow: 0px 0px 10px #ffffff;
-    color: white;
+    color: var(--text-color-primary);
 }
 
 @keyframes flicker {
@@ -64,16 +83,17 @@ h1 {
 }
 
 .blur-box {
-    position: fixed;
-    top: 0;
+    /* attempting to fix scrolling above the viewport. failed. */
+    position: sticky;
+    top: -50px;
     right: 0;
     left: 0;
     -webkit-backdrop-filter: blur(150px);
     backdrop-filter: blur(150px);
-    height: 100vh;
+    height: calc(100vh + 50px);
     width: 100vw;
     z-index: 1;
-    background-color: rgba(45, 45, 45, 0.1);
+    background-color: var(--blur-box-background-color);
 }
 
 .star {
@@ -81,7 +101,7 @@ h1 {
     top: -10px;
     width: 200px;
     height: 400px;
-    background-color: #ffffff;
+    background-color: var(--star-background-color);
     animation: rotateing 50s ease-in-out infinite;
 }
 
@@ -97,16 +117,6 @@ h1 {
     }
 }
 
-.airplane {
-    position: absolute;
-    top: -10px;
-    width: 3px;
-    height: 3px;
-    background-color: #ff0606;
-    border-radius: 50%;
-    animation: flash 1s linear infinite;
-}
-
 @keyframes flash {
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
         box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.4), 0px 0px 20px rgba(0, 255, 0, 0.4), 0px 0px 30px rgba(0, 255, 0, 0.4);
@@ -118,16 +128,16 @@ h1 {
 
 @keyframes twinkle {
     0%, 100% {
-        opacity: 1;
+        opacity: var(--twinkle-opacity-primary);
     }
     50% {
-        opacity: 0.5;
+        opacity: var(--twinkle-opacity-secondary);
     }
 }
 
 
 #title-container {
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: var(--background-color-secondary); 
     border-radius: 10px;
     padding: 5px;
     margin: 50px auto;
@@ -153,19 +163,19 @@ h1 {
     justify-content: center;
     border-radius: 10px; 
     padding: 10px; 
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0px 0px 10px var(--box-shadow-color); 
     align-items: center; 
     position: relative;
     z-index: 2;
-    background-color: rgba(255, 255, 255, 0.2); 
+    background-color: var(--background-color-tertiary); 
     /* because safari */
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
 }
 
 #navbar a {
-    color: #ffffff;
-    font-family: 'MonumentNon', Arial, Helvetica, sans-serif;
+    color: var(--text-color-secondary);
+    font-family: var(--font-family-tertiary);
     text-decoration: none;
     padding: 10px 20px;
     margin: 0 10px;
@@ -173,11 +183,11 @@ h1 {
 }
 
 #navbar a:hover {
-    text-shadow: 0px 0px 10px #ffffff;
+    text-shadow: 0px 0px 10px var(--text-color-secondary);
 }
 
 #navbar a:active {
-    color: #bfbfbf;
+    color: var(--text-color-tertiary);
 }
 
 #about-container {
@@ -189,7 +199,7 @@ h1 {
     width: 800px;
     box-shadow: 0 0 50px #ffffff;
     position: relative;
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px 5px var(--box-shadow-color);
     z-index: 2;
 }
 
@@ -202,7 +212,7 @@ h1 {
     width: 800px;
     box-shadow: 0 0 50px #ffffff;
     position: relative;
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px 5px var(--box-shadow-color);
     z-index: 2;
 }
 
@@ -216,7 +226,7 @@ h1 {
     padding: 30px;
     margin: 50px auto;
     width: 800px;
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px 5px var(--box-shadow-color);
     position: relative;
     z-index: 2;
 }
@@ -283,14 +293,14 @@ h1 {
 }
 
 h2 {
-    color: #000000;
+    color: var(--text-color-primary);
     text-align: left;
     margin-bottom: 20px;
     margin-top: auto;
 }
 
 p {
-    color: #000000;
+    color: var(--text-color-primary);
     margin-bottom: 10px;
 }
 
@@ -300,7 +310,7 @@ p {
     top: -10px;
     width: 10px;
     height: 10px;
-    background-color: #ffffff;
+    background-color: var(--snowflake-background-color);
     border-radius: 50%;
     animation: snowfall linear infinite;
 }
@@ -312,28 +322,6 @@ p {
     100% {
         transform: translateY(calc(100vh - 10px)); /* pile up at the bottom, at least, that's the point */
     }
-}
-
-/* cloud animation */
-@keyframes cloudMove {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100vw);
-    }
-}
-
-#cloud {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 512px;
-    height: 256px;
-    background-image: url('images/cloud.png');
-    background-size: cover;
-    animation: cloudMove 30s linear infinite;
-    z-index: 0;
 }
 
 @font-face {

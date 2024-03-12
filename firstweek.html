@@ -23,17 +23,17 @@
     </div>
     <div id="about-container">
         <input type="checkbox" id="box1-check" onchange="toggleBoxes('box1')" checked> Interactive Media Products
-        <input type="checkbox" id="box2-check" onchange="toggleBoxes('box2')" checked> Development and Version control
+        <input type="checkbox" id="box6-check" onchange="toggleBoxes('box6')" checked> Development and Version control
         <input type="checkbox" id="box3-check" onchange="toggleBoxes('box3')" checked>  Interative design
         <input type="checkbox" id="box4-check" onchange="toggleBoxes('box4')" checked> Professional standards
         <input type="checkbox" id="box5-check" onchange="toggleBoxes('box5')" checked> Personal Leadership
-        <input type="checkbox" id="box6-check" onchange="toggleBoxes('box6')" checked> 
+        <input type="checkbox" id="box2-check" onchange="toggleBoxes('box2')" checked> 
         <input type="checkbox" id="box7-check" onchange="toggleBoxes('box7')" checked> 
         <input type="checkbox" id="box8-check" onchange="toggleBoxes('box8')" checked> 
     </div>
     <div class="portfolio-container">
         <a href="firstweek.html" class="box box1">
-            <div><h2>Businness card</h2><p>These contain projects I'm proud of which I've made over the years.</p></div>
+            <div><h2>Businness card</h2><p>Using 3D printing, I've developed a custom businesscard.</p></div>
             <img src="../images/portfolio/card.jpg" alt="Business card" class="box-image">
         </a>
         <a href="firstweek.html" class="box box2">
@@ -52,12 +52,12 @@
         </a>
     </div>
     <div class="portfolio-container">
-        <a href="binggood.html" class="box box6">
+        <a href="https://github.com/Bloxmine/Hein" class="box box6">
             <div>
-                <h2>Test 1</h2>
-                <p>These contain projects I'm proud of which I've made over the years.</p>
+                <h2>Using Git</h2>
+                <p>This site is built with Git in mind. Here I've linked my own Github repo.</p>
             </div>
-            <img src="../images/lancia.jpg" alt="Good UX bad UX" class="box-image">
+            <img src="../images/portfolio/github.png" alt="GIT" class="box-image">
         </a>
         <a href="firstweek.html" class="box box7">
             <div>
@@ -144,7 +144,7 @@
                 } else {
                     boxes[i].classList.remove('visible');
                     boxes[i].classList.add('hidden');
-                    // this is a bit of a hack, but it works
+                    // this is a bit of a hack, timeouts should be avoided.
                     setTimeout(function() {
                         if (boxes[i].classList.contains('hidden')) {
                             boxes[i].classList.add('box-gone');
