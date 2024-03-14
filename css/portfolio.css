@@ -41,6 +41,22 @@ h1 {
     animation: flicker 3s infinite;
 }
 
+h3 {
+    position: relative;
+    z-index: 3;
+    font-family: var(--font-family);
+    color: var(--primary-color);
+}
+
+h3 a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+h3 a:hover {
+    animation: twinkle 1s infinite;
+}
+
 #spotlight-left {
     position: fixed;
     bottom: 1vh;
@@ -317,6 +333,15 @@ h2 {
 p {
     color: var(--primary-color);
     margin-bottom: 10px;
+}
+
+footer {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    margin: 50px auto;
+    font-family: var(--font-monument-non);
+    color: lightgray;
 }
 
 @font-face {

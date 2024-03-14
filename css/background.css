@@ -1,0 +1,75 @@
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: 'SupplyMono', monospace;
+    overflow-y: auto;
+}
+
+h1 {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    margin: 50px auto;
+    font-size: 50px;
+    font-family: 'SupplyMonoBold', monospace;
+    color: #000000;
+}
+
+p {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    font-family: 'SupplyMono', monospace;
+    color: #000000;
+    max-width: 70%; /* or any other percentage or fixed value */
+    margin: 0 auto; /* top and bottom margins are 0, left and right margins are automatic */
+}
+
+.backbutton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'SupplyMono', monospace;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.backbutton a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.backbutton:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.backbutton:hover a {
+    color: #000000;
+}
+
+.image {
+    display: block;
+    margin: 10px auto;
+    max-width: 20%;
+    border-radius: 5px;
+}
+
+.image:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+@font-face {
+    font-family: 'SupplyMono';
+    src: url(../fonts/SupplyMono.woff) format('woff');
+    font-style: monospace;
+}
+@font-face {
+    font-family: 'SupplyMonoBold';
+    src: url(../fonts/SupplyMonoBold.woff) format('woff');
+    font-style: monospace;
+}
