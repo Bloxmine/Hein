@@ -43,16 +43,6 @@ h1 {
     z-index: 0;
 }
 
-#moon {
-    position: fixed;
-    top: 10vh;
-    left: 10vw;
-    width: 150px;
-    height: 150px;
-    background-image: url('../images/moon.png');
-    z-index: 1;
-    animation: fadeInOut 5s ease-in-out infinite;
-}
 
 @keyframes fadeInOut {
     0%, 100% {
