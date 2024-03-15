@@ -6,6 +6,35 @@ body {
     background: #f1f0f0;
 }
 
+body.dark-mode {
+    background-color: #000000;
+    color: #fff;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode p {
+    color: #fff; /* Change this to the color you want for dark mode */
+}
+
+body.dark-mode .backbutton {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark-mode .backbutton a {
+    color: #000000;
+}
+
+body.dark-mode .backbutton:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.dark-mode .backbutton:hover a {
+    color: #ffffff;
+}
+
 h1 {
     position: relative;
     z-index: 3;
@@ -37,8 +66,66 @@ p {
     margin: 0 auto; /* top and bottom margins are 0, left and right margins are automatic */
 }
 
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+.gallery a {
+    margin: 10px;
+    text-decoration: none;
+    font-family: 'SupplyMonoBold', monospace;
+    color: #000000;
+}
+
+.gallery-up {
+    display: block;
+    margin: 10px;
+    max-width: 20%;
+    border-radius: 5px;
+}
+
+.gallery-up:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.gallery-down {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+.gallery-down a {
+    display: block;
+    margin: 10px;
+    max-width: 20%;
+}
+
+.gallery-image {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.gallery-image:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+}
+
 .backbutton {
-    position: absolute;
     top: 20px;
     left: 20px;
     background-color: #000000;
@@ -47,6 +134,9 @@ p {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    display: inline-block;
+    float: left;
+    margin: 10px;
 }
 
 .backbutton a {

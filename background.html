@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="css/background.css">
 </head>
 <body>
-    <div class="backbutton">
-        <a href="portfolio.html">Back</a>
+    <div class="button-container">
+        <div class="backbutton">
+            <a href="portfolio.html">Back</a>
+        </div>
+        <div id="darkMode" class="backbutton">Toggle Dark Mode</div>
     </div>
     <h1>Portfolio inspiration</h1>
     <p>Neocities is one of my main sources of inspiration for my portfolio site. It’s a site where people can host their custom made personal websites, akin to Geocities from the late 90s.</p>
@@ -26,10 +29,36 @@
     <p>One of the things I like about Homestar Runner is the way it used the internet as a medium. It was not just a series that was put on the internet, it was a series that was made for the internet. It used the internet’s interactivity and multimedia capabilities to create a unique and engaging experience.</p>
     <p>The night theme has taken inspiration from the look of the Halloween and 'Decemberween' episodes from Homestar Runner</p>
     <img src="images/inspiration/decemberween.png" alt="Homestar Runner" class="image">§
+    <p>While it may not look as 'clean' or professional as many modern websites, it does allow me to develop my own style.</p>
+    <p>Right now I have found a middle ground between the two extremes, which are totally cartoony, or totally clean and modern.</p>
+    <div class="gallery" id="gallery">
+        <a>Cartoony vs modern</a>
+        <img src="images/inspiration/cartoony.png" alt="Portfolio 1" class="gallery-up">
+        <img src="images/inspiration/modern.png" alt="Portfolio 2" class="gallery-up">
+    </div>
+    <h2>Other portfolio sites</h2>
+    <p>There are many other portfolio sites that I like and take inspiration from. Some of them are very professional looking, some of them are very experimental, and some of them are a mix of both.</p>
+    <div class="gallery-down" id="gallery-down">
+        <a href="https://y2k.neocities.org"><img src="images/inspiration/1.png" alt="The Nexus" class="gallery-image"></a>
+        <a href="images/inspiration/2.png"><img src="images/inspiration/2.png" alt="Portfolio 2" class="gallery-image"></a>
+        <a href="images/inspiration/3.png"><img src="images/inspiration/3.png" alt="Portfolio 3" class="gallery-image"></a>
+        <a href="https://warp.zone"><img src="images/inspiration/4.png" alt="The Warp Zone" class="gallery-image"></a>
+        <a href="images/inspiration/5.png"><img src="images/inspiration/5.png" alt="Portfolio 5" class="gallery-image"></a>
+        <a href="images/inspiration/6.png"><img src="images/inspiration/6.png" alt="Portfolio 6" class="gallery-image"></a>
+    </div>
     <h2>Conclusion</h2>
     <p>Neocities and Flash are two of my main sources of inspiration for my portfolio site. They are both known for their experimental designs, their interactivity, and their creativity. They are both places where you can be as creative as you want to be, and that’s what I want my portfolio site to be as well.</p>
     <p>My portfolio site is a place for me to showcase my works and my own style. It’s a place for me to experiment and try new things. It’s a place for me to be as creative as I want to be.</p>
     <p>It’s a place for me to be me.</p>
     <h2>References</h2>
+    <p>Neocities. (n.d.). Retrieved from https://neocities.org/</p>
+    <p>Homestar Runner. (n.d.). Retrieved from https://homestarrunner.com/</p>
+    <p>Wikipedia. (n.d.). Retrieved from https://en.wikipedia.org/wiki/Adobe_Flash</p>
+    <p>Wikipedia. (n.d.). Retrieved from https://en.wikipedia.org/wiki/Neocities</p>
+    <script>
+        document.getElementById('darkMode').addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+    });
+    </script>
 </body>
 </html>
