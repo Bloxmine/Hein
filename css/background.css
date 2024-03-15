@@ -3,6 +3,7 @@ body {
     margin: 0;
     font-family: 'SupplyMono', monospace;
     overflow-y: auto;
+    background: #f1f0f0;
 }
 
 h1 {
@@ -24,6 +25,7 @@ h2 {
     font-family: 'SupplyMonoBold', monospace;
     color: #000000;
 }
+
 
 p {
     position: relative;

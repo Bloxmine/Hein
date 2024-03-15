@@ -1,5 +1,5 @@
 // Author: Hein Dijstelbloem
-// Last modified: 2024-13-03
+// Last modified: 2024-15-03
 // Description: This file contains the JavaScript code for the first week page.
 //              It creates divs that rotate, to make 
 
