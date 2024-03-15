@@ -27,7 +27,8 @@ function createStar() {
 }
 
 function addStarsToSky(numStars) {
-    const body = document.body;
+    const body = document.querySelector("[data-container]");
+    // console.log(body)
     for (let i = 0; i < numStars; i++) {
         const star = createStar();
         body.appendChild(star); // append them to the body

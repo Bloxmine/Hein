@@ -15,10 +15,20 @@ h1 {
     color: #000000;
 }
 
-p {
+h2 {
     position: relative;
     z-index: 3;
     text-align: center;
+    margin: 50px auto;
+    font-size: 30px;
+    font-family: 'SupplyMonoBold', monospace;
+    color: #000000;
+}
+
+p {
+    position: relative;
+    z-index: 3;
+    text-align: left;
     font-family: 'SupplyMono', monospace;
     color: #000000;
     max-width: 70%; /* or any other percentage or fixed value */
