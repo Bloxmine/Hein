@@ -278,11 +278,15 @@ h1 {
 }
 
 #about-container div.checked {
-    background-color: rgb(81, 116, 254);
+    background-color: #9dcdf5;
 }
 
 #about-container div.checked span {
-    color: white;
+    color: rgb(29, 79, 150);
+}
+
+#about-container div.checked:hover {
+    color: rgb(29, 79, 150);
 }
 
 #check-container {
@@ -315,8 +319,21 @@ h1 {
 
 .unhighlight {
     box-shadow: 0 0 10px #add8e6, 0 0 20px #add8e6, 0 0 30px #add8e6, 0 0 40px #add8e6;
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: all 0.3s ease;
+    animation: standout 1s ease-in-out;
+}
+
+@keyframes standout {
+    0% {
+        box-shadow: none;
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 0 10px #add8e6, 0 0 20px #add8e6, 0 0 30px #add8e6, 0 0 40px #add8e6;
+        transform: scale(1.05);
+        background-image: linear-gradient(#8dccff, #ffffff);
+    }
 }
 
 .highlight {
