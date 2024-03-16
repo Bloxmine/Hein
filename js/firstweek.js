@@ -60,24 +60,17 @@ window.addEventListener('scroll', function() {
         star.style.opacity = opacityValue;
     });
 });
-// this is the code for the checkboxes
-function toggleBoxes(boxClass) {
-    let checkBox = document.getElementById(boxClass + "-check");
-    let boxes = document.getElementsByClassName(boxClass);
+function toggleBoxes(boxId) {
+    let box = document.getElementById(boxId);
+    let boxes = document.getElementsByClassName(boxId);
     for (let i = 0; i < boxes.length; i++) {
-        if (checkBox.checked) {
-            boxes[i].classList.remove('hidden');
-            boxes[i].classList.remove('box-gone');
-            boxes[i].classList.add('visible');
+        if (box.classList.contains('checked')) {
+            boxes[i].classList.remove('unhighlight');
+            boxes[i].classList.add('highlight');
         } else {
-            boxes[i].classList.remove('visible');
-            boxes[i].classList.add('hidden');
-            // this is a bit of a hack, timeouts should be avoided.
-            setTimeout(function() {
-                if (boxes[i].classList.contains('hidden')) {
-                    boxes[i].classList.add('box-gone');
-                }
-            }, 500);
+            boxes[i].classList.remove('highlight');
+            boxes[i].classList.add('unhighlight');
         }
     }
+    box.classList.toggle('checked');
 }

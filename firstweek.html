@@ -16,41 +16,51 @@
         <img id="navbarImage">
     </nav>
     
-    <div id="about-container">
+    <div id="about">
         <h2>First week projects</h2>
         <p>These are project's I've worked on in the first week of the second semester.</p>
         <p>These projects have been divided into three 'eras' </p>
     </div>
-    <div id="about-container">
-        <input type="checkbox" id="box1-check" onchange="toggleBoxes('box1')" checked> Interactive Media Products
-        <input type="checkbox" id="box6-check" onchange="toggleBoxes('box6')" checked> Development and Version control
-        <input type="checkbox" id="box3-check" onchange="toggleBoxes('box3')" checked>  Interative design
-        <input type="checkbox" id="box4-check" onchange="toggleBoxes('box4')" checked> Professional standards
-        <input type="checkbox" id="box5-check" onchange="toggleBoxes('box5')" checked> Personal Leadership
-        <input type="checkbox" id="box2-check" onchange="toggleBoxes('box2')" checked> 
-        <input type="checkbox" id="box7-check" onchange="toggleBoxes('box7')" checked> 
-        <input type="checkbox" id="box8-check" onchange="toggleBoxes('box8')" checked> 
+    <div id="parent-container">
+        <div id="about-container">
+            <div id="box1" onclick="toggleBoxes('box1')">
+                <span>Interactive Media Products</span>
+            </div>
+            <div id="box2" onclick="toggleBoxes('box2')">
+                <span>Development and Version control</span>
+            </div>
+            <div id="box3" onclick="toggleBoxes('box3')">
+                <span>Interactive design</span>
+            </div>
+            <div id="box4" onclick="toggleBoxes('box4')">
+                <span>Professional standards</span>
+            </div>
+            <div id="box5" onclick="toggleBoxes('box5')">
+                <span>Personal Leadership</span>
+            </div>
+        </div>
+        <div class="portfolio-container">
+            <a href="firstweek.html" class="box box1">
+                <div><h2>Business card</h2><p>Using 3D printing, I've developed a custom business card.</p></div>
+                <img src="../images/portfolio/card.jpg" alt="Business card" class="box-image">
+            </a>
+            <a href="firstweek.html" class="box box2">
+                <div><h2>Paper prototype</h2><p>Our group made a paper prototype for a game focused on teamwork.</p></div><img src="../images/portfolio/paperpro.jpg" alt="Business card" class="box-image">
+            </a>
+            <a href="newprojects.html" class="box box3">
+                <div><h2>Portrait</h2><p>One professional and one 'creative' portrait.</p><br></div><img src="../images/portfolio/portrait.jpg" alt="Business card" class="box-image">
+            </a>
+            <a href="googlesux.html" class="box box4">
+                <div><h2>Google but bad UX</h2></div>
+                <img src="../images/portfolio/googlesux.png" alt="Google" class="box-image">
+            </a>
+            <a href="binggood.html" class="box box5">
+                <div><h2>Bing but good UX</h2></div>
+                <img src="../images/portfolio/binggood.png" alt="Bing" class="box-image">
+            </a>
+        </div>
     </div>
-    <div class="portfolio-container">
-        <a href="firstweek.html" class="box box1">
-            <div><h2>Business card</h2><p>Using 3D printing, I've developed a custom business card.</p></div>
-            <img src="../images/portfolio/card.jpg" alt="Business card" class="box-image">
-        </a>
-        <a href="firstweek.html" class="box box2">
-            <div><h2>Paper prototype</h2><p>Our group made a paper prototype for a game focused on teamwork.</p></div><img src="../images/portfolio/paperpro.jpg" alt="Business card" class="box-image">
-        </a>
-        <a href="newprojects.html" class="box box3">
-            <div><h2>Portrait</h2><p>One professional and one 'creative' portrait.</p><br></div><img src="../images/portfolio/portrait.jpg" alt="Business card" class="box-image">
-        </a>
-        <a href="googlesux.html" class="box box4">
-            <div><h2>Google but bad UX</h2></div>
-            <img src="../images/portfolio/googlesux.png" alt="Google" class="box-image">
-        </a>
-        <a href="binggood.html" class="box box5">
-            <div><h2>Bing but good UX</h2></div>
-            <img src="../images/portfolio/binggood.png" alt="Bing" class="box-image">
-        </a>
-    </div>
+    <div id="parent-container">
     <div class="portfolio-container">
         <a href="https://github.com/Bloxmine/Hein" class="box box6">
             <div>
@@ -68,11 +78,12 @@
         </a>
         <a href="newprojects.html" class="box box8">
             <div>
-                <h2>Portrait</h2>
+                <h2>Soundwave Studio</h2>
                 <p>These contain projects I'm proud of which I've made over the years.</p>
             </div>
             <img src="../images/lancia.jpg" alt="Portrait" class="box-image">
         </a>
+    </div>
     </div>
     <!-- bg elements -->
     <div class="blur-box" data-container></div>

@@ -6,20 +6,23 @@
     <title>Manifesto</title>
     <link rel="stylesheet" href="css/background.css">
 </head>
+<script src="js/gsap.min.js"></script>
 <body>
     <div class="button-container">
-        <div class="backbutton">
-            <a href="portfolio.html">Back</a>
-        </div>
+        <a href="portfolio.html">
+            <div class="backbutton">
+                Back
+            </div>
+        </a>
         <div id="darkMode" class="backbutton">Toggle Dark Mode</div>
     </div>
     <h1>Portfolio inspiration</h1>
     <p>Neocities is one of my main sources of inspiration for my portfolio site. It’s a site where people can host their custom made personal websites, akin to Geocities from the late 90s.</p>
     <img src="images/inspiration/neo.png" alt="Neocities" class="image">
     <p>Most sites on Neocities are not meant to be very professional looking. They are hobbyist projects, a place for people to showcase their works and own style.</p>
-    <p>One of the things I like about Neocities is the freedom it gives to the user. You can use any kind of design, any kind of layout, any kind of color scheme. It’s a place where you can be as creative as you want to be.</p>
+    <p>One of the things I like about Neocities is the freedom it gives to the user. You can use any kind of design, any kind of layout, any kind of color scheme. For the free version there are barely any restrictions, as long as it isn't a strain on their bandwith.</p>
     <h2>Taking inspiration from Flash</h2>
-    <p>Another source of inspiration for my portfolio site is the Flash era of the internet. Flash was a multimedia platform that was widely used in the late 90s and early 2000s. It was used to create animations, games, and interactive websites.</p>
+    <p>Another source of inspiration for my portfolio site is the Flash era of the internet. Flash was huge in the 2000's, for better or for worse. It was used to create animations, games, and interactive websites.</p>
     <img src="images/inspiration/flash.png" alt="Flash" class="image">
     <p>Flash websites were known for their interactivity and animations. They were often very colorful and had a lot of movement. They were also known for their experimental designs and layouts.</p>
     <p>One of the things I like about Flash websites is the sense of playfulness and creativity they had. They were not afraid to break the rules and try new things. They were a place for experimentation and innovation. I do miss Flash, but at the same time I don't miss propritary plugins and formats like it.</p>
@@ -36,6 +39,12 @@
         <img src="images/inspiration/cartoony.png" alt="Portfolio 1" class="gallery-up">
         <img src="images/inspiration/modern.png" alt="Portfolio 2" class="gallery-up">
     </div>
+    <h2>Gradients, rotating divs and blur</h2>
+    <p>One aspect of modern web design that sort of bridges two eras is the use of blur and animation. My projects page uses a lot of blur with rotating divs behind it to act</p>
+    <div class="gallery" id="gallery">
+        <a>What my page looks like without blur</a>
+        <img src="images/inspiration/noblur.png" alt="noblur" class="gallery-up">
+    </div>
     <h2>Other portfolio sites</h2>
     <p>There are many other portfolio sites that I like and take inspiration from. Some of them are very professional looking, some of them are very experimental, and some of them are a mix of both.</p>
     <div class="gallery-down" id="gallery-down">
@@ -47,18 +56,30 @@
         <a href="images/inspiration/6.png"><img src="images/inspiration/6.png" alt="Portfolio 6" class="gallery-image"></a>
     </div>
     <h2>Conclusion</h2>
-    <p>Neocities and Flash are two of my main sources of inspiration for my portfolio site. They are both known for their experimental designs, their interactivity, and their creativity. They are both places where you can be as creative as you want to be, and that’s what I want my portfolio site to be as well.</p>
+    <p>Neocities and Flash are currently two of my main sources of inspiration for my portfolio site.</p>
     <p>My portfolio site is a place for me to showcase my works and my own style. It’s a place for me to experiment and try new things. It’s a place for me to be as creative as I want to be.</p>
-    <p>It’s a place for me to be me.</p>
     <h2>References</h2>
     <p>Neocities. (n.d.). Retrieved from https://neocities.org/</p>
     <p>Homestar Runner. (n.d.). Retrieved from https://homestarrunner.com/</p>
     <p>Wikipedia. (n.d.). Retrieved from https://en.wikipedia.org/wiki/Adobe_Flash</p>
     <p>Wikipedia. (n.d.). Retrieved from https://en.wikipedia.org/wiki/Neocities</p>
     <script>
-        document.getElementById('darkMode').addEventListener('click', function() {
-        document.body.classList.toggle('dark-mode');
-    });
+        window.onload = function() {
+            gsap.from("h1", {duration: 0.5, y: -50, opacity: 0, ease: "power2.out"});
+            gsap.from("h2", {duration: 0.5, y: -50, opacity: 0, ease: "power2.out"});
+            gsap.from("p", {duration: 0.5, y: -50, opacity: 0, delay: 0.3, ease: "power2.out"});
+            gsap.from(".image", {duration: 0.5, y: -50, opacity: 0, delay: 0.3, ease: "power2.out"});
+            gsap.from(".gallery", {duration: 0.5, y: -50, opacity: 0, delay: 0.3, ease: "power2.out"});
+            gsap.from(".backbutton", {duration: 1, y: -50, opacity: 0, delay: 0.5, ease: "bounce.out"});
+            
+            // darkmode after gsap loads in buttons
+            let darkModeButton = document.getElementById('darkMode');
+            if (darkModeButton) {
+                darkModeButton.addEventListener('click', function() {
+                    document.body.classList.toggle('dark-mode');
+                });
+            }
+        }
     </script>
 </body>
 </html>

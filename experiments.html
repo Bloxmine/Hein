@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/experiments.css">
+    <link rel="stylesheet" href="css/exp.css">
     <title>Hein Dijstelbloem</title>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/Flip.min.js"></script>
 </head>
 <body id="body">
         <h1>First week projects</h1>
@@ -68,15 +70,100 @@
         </a>
         <a href="newprojects.html" class="box box8">
             <div>
-                <h2>Portrait</h2>
+                <h2>Soundwave Studio</h2>
                 <p>These contain projects I'm proud of which I've made over the years.</p>
             </div>
             <img src="../images/lancia.jpg" alt="Portrait" class="box-image">
         </a>
     </div>
     <!-- bg elements -->
-    <div class="blur-box"></div>
-    <!-- script is now a seperate file -->
-    <script src="js/firstweek_nocheck.js"></script>
+    <div class="blur-box" data-container></div>
+    <script>
+        function getRandomNumber(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    function getRandomColor() {
+        const hue = Math.random() * 360;
+        const saturation = 100; 
+        const lightness = 50;
+        return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    }
+
+    function createStar() {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = `${getRandomNumber(0, 100)}%`;
+        star.style.top = `${getRandomNumber(0, 50)}%`;
+        star.style.backgroundColor = getRandomColor();
+        return star;
+    }
+
+    function addStarsToSky(numStars) {
+        const body = document.querySelector("[data-container]");
+        // console.log(body)
+        for (let i = 0; i < numStars; i++) {
+            const star = createStar();
+            body.appendChild(star); // append them to the body
+        }
+    }
+
+    // twinkle little star
+    function animateStars() {
+        const stars = document.getElementsByClassName('star');
+        for (let i = 0; i < stars.length; i++) {
+            const star = stars[i];
+            star.style.animationDelay = `${getRandomNumber(0, 5)}s`;
+        }
+    }
+
+    addStarsToSky(25);
+    animateStars();
+    // this is the code for scrolling, might be better to set a fixed point for the squares to start fading out? now it's determined by the height of the page
+    window.addEventListener('scroll', function() {
+        let scrollPosition = window.scrollY;
+        let stars = document.querySelectorAll('.star');
+        let startOpacity = 1;
+        let endOpacity = 0;
+        let startScroll = 0;
+        let endScroll = document.body.scrollHeight - window.innerHeight;
+        let opacityValue = startOpacity + (endOpacity - startOpacity) * ((scrollPosition - startScroll) / (endScroll - startScroll));
+
+        stars.forEach(star => {
+            star.style.opacity = opacityValue;
+        });
+    });
+// JavaScript
+gsap.registerPlugin(Flip);
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const portfolioContainer = document.querySelector('.portfolio-container');
+
+checkboxes.forEach((checkbox, index) => {
+    checkbox.addEventListener('change', () => {
+        const boxes = Array.from(portfolioContainer.querySelectorAll('.box'));
+        const box = boxes[index];
+        checkbox.checked ? box.classList.remove('hidden') : box.classList.add('hidden');
+
+        // Get the initial state
+        const state = Flip.utils.snap(".portfolio-container, .box");
+
+        // toggle the flex direction
+        portfolioContainer.classList.toggle("reorder");
+
+        Flip.from(state, {
+            absolute: true,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power1.inOut",
+            clearProps: "all",
+        });
+    });
+});
+    </script>
+    <!-- footer -->
+    <div class="foot">
+        <p>Hein Dijstelbloem</p>
+        <p>2024</p>
+    </div>
 </body>
 </html>

@@ -28,24 +28,6 @@ h1 {
     }
 }
 
-
-
-#checkbox {
-    background-color: red;
-}
-
-#skyline {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 200px;
-    background-image: url('../images/skyline.png');
-    background-repeat: repeat-x;
-    z-index: 0;
-}
-
-
 @keyframes fadeInOut {
     0%, 100% {
         opacity: 1;
@@ -89,17 +71,6 @@ h1 {
     }
 }
 
-.airplane {
-    position: absolute;
-    top: -10px;
-    width: 3px;
-    height: 3px;
-    background-color: #ff0606;
-    border-radius: 50%;
-    animation: flash 1s linear infinite;
-}
-
-
 @keyframes flash {
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
         box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.4), 0px 0px 20px rgba(0, 255, 0, 0.4), 0px 0px 30px rgba(0, 255, 0, 0.4);
@@ -129,12 +100,6 @@ h1 {
     z-index: 2;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
-}
-
-#toggleSnowBtn {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
 }
 
 #navbar {
@@ -173,7 +138,7 @@ h1 {
     color: #bfbfbf;
 }
 
-#about {
+#about-container {
     box-sizing: border-box;
     background-color: #ffffff;
     border-radius: 10px;
@@ -184,44 +149,30 @@ h1 {
     position: relative;
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
     z-index: 2;
-
 }
 
-#parent-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 50px auto;
-    width: 800px;
-    align-items: stretch;
-}
-
-#about-container {
+#check-container {
     box-sizing: border-box;
     background-color: #ffffff;
     border-radius: 10px;
-    width: 100px;
+    padding: 20px;
+    margin: 50px auto;
+    width: 800px;
     box-shadow: 0 0 50px #ffffff;
     position: relative;
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
     z-index: 2;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex: 0; /* This will make the about-container take up only the space it needs */
-    max-width: 200px; /* Adjust as needed */
-    margin-right: 10px; /* Adjust as needed */
 }
 
 .portfolio-container {
     box-sizing: border-box;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     background-color: #ffffff;
     border-radius: 10px;
-    padding: 20px;
+    padding: 30px;
+    margin: 50px auto;
     width: 800px;
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
     position: relative;
@@ -241,94 +192,17 @@ h1 {
     overflow: hidden;
     animation-fill-mode: forwards;
     transition: all 0.5s ease-in-out;
+    display: flex; /* Add this line */
+    flex-direction: column; /* Add this line */
 }
 
-#about-container div {
-    position: relative;
-    padding: 10px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    transition: all 0.5s ease-in-out;
-    cursor: pointer;
-    flex: 1;
+.portfolio-container .box.hidden {
+    display: none; /* Add this class and line */
 }
 
-#about-container div:hover {
-    background-image: linear-gradient(#9dcdf5, #ffffff);
+.po§rtfolio-container .box.reorder {
+    flex-direction: column; /* This will change the direction of flex items */
 }
-
-#about-container div span {
-    margin-top: 5px;
-    font-size: 12px;
-    color: black;
-}
-
-#about-container div::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 12px;
-    color: black;
-}
-
-#about-container div.checked {
-    background-color: rgb(81, 116, 254);
-}
-
-#about-container div.checked span {
-    color: white;
-}
-
-#check-container {
-    box-sizing: border-box;
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 50px auto;
-    width: 800px;
-    box-shadow: 0 0 50px #ffffff;
-    position: relative;
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
-    z-index: 2;
-}
-
-.hidden {
-    opacity: 0;
-    max-height: 0;
-    margin: 0;
-    transform: scale(0);
-}
-
-.visible {
-    opacity: 1;
-    max-height: 1000px;
-    margin: 10px;
-    transform: scale(1);
-    animation: grow 0.5s ease-in-out forwards;
-}
-
-.unhighlight {
-    box-shadow: 0 0 10px #add8e6, 0 0 20px #add8e6, 0 0 30px #add8e6, 0 0 40px #add8e6;
-    transform: scale(1.1);
-    transition: all 0.3s ease;
-}
-
-.highlight {
-    box-shadow: none;
-    transform: scale(1);
-    transition: all 0.3s ease;
-}
-
-.box-gone {
-    display: none;
-}
-
 @keyframes shrink {
     from { max-height: 1000px; opacity: 1; }
     to { max-height: 0; opacity: 0; }
