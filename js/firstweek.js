@@ -1,7 +1,7 @@
 // Author: Hein Dijstelbloem
 // Last modified: 2024-15-03
 // Description: This file contains the JavaScript code for the first week page.
-//              It creates divs that rotate, to make 
+//              It creates divs that rotate, to make cool shapez
 
 
 // these are called 'stars' but I've reused my code to turn them into glowy squares

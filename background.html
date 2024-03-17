@@ -3,8 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manifesto</title>
+    <title>Manifesto | Hein Dijstelbloem</title>
     <link rel="stylesheet" href="css/background.css">
+    <script>
+        // yes the script isn't in a separate file, but we're L33T H4X0RZ here ...
+        document.addEventListener("DOMContentLoaded", function() {
+            gsap.from("h1", {duration: 0.5, y: -50, opacity: 0, ease: "power2.out"});
+            gsap.from("h2", {duration: 0.5, y: -50, opacity: 0, ease: "power2.out"});
+            gsap.from("p", {duration: 0.5, y: -50, opacity: 0, delay: 0.3, ease: "power2.out"});
+            gsap.from(".gallery", {duration: 0.5, y: -50, opacity: 0, delay: 0.3, ease: "power2.out"});
+            gsap.from(".backbutton", {duration: 1, y: -50, opacity: 0, delay: 0.5, ease: "bounce.out"});
+            
+            // darkmode after gsap loads in buttons
+            let darkModeButton = document.getElementById('darkMode');
+            if (darkModeButton) {
+                darkModeButton.addEventListener('click', function() {
+                    document.body.classList.toggle('dark-mode');
+                    if (darkModeButton.textContent === 'Toggle Dark Mode') {
+                        darkModeButton.textContent = 'Toggle Light Mode';
+                    } else {
+                        darkModeButton.textContent = 'Toggle Dark Mode';
+                    }
+                    gsap.to("body", {duration: 0.1, x: 5, repeat: 3, yoyo: true, ease: "power1.inOut"});
+                });
+            }
+        });
+    </script>
 </head>
 <script src="js/gsap.min.js"></script>
 <body>
@@ -63,30 +87,5 @@
     <p>Homestar Runner. (n.d.). Retrieved from https://homestarrunner.com/</p>
     <p>Wikipedia. (n.d.). Retrieved from https://en.wikipedia.org/wiki/Adobe_Flash</p>
     <p>Wikipedia. (n.d.). Retrieved from https://en.wikipedia.org/wiki/Neocities</p>
-    <script>
-        window.onload = function() {
-            gsap.from("h1", {duration: 0.5, y: -50, opacity: 0, ease: "power2.out"});
-            gsap.from("h2", {duration: 0.5, y: -50, opacity: 0, ease: "power2.out"});
-            gsap.from("p", {duration: 0.5, y: -50, opacity: 0, delay: 0.3, ease: "power2.out"});
-            gsap.from(".image", {duration: 0.5, y: -50, opacity: 0, delay: 0.3, ease: "power2.out"});
-            gsap.from(".gallery", {duration: 0.5, y: -50, opacity: 0, delay: 0.3, ease: "power2.out"});
-            gsap.from(".backbutton", {duration: 1, y: -50, opacity: 0, delay: 0.5, ease: "bounce.out"});
-            
-            // darkmode after gsap loads in buttons
-                let darkModeButton = document.getElementById('darkMode');
-                if (darkModeButton) {
-                    darkModeButton.addEventListener('click', function() {
-                        document.body.classList.toggle('dark-mode');
-                        if (darkModeButton.textContent === 'Toggle Dark Mode') {
-                            darkModeButton.textContent = 'Toggle Light Mode';
-                        } else {
-                            darkModeButton.textContent = 'Toggle Dark Mode';
-                        }
-                        // Shake animation
-                        gsap.to("body", {duration: 0.1, x: 5, repeat: 3, yoyo: true, ease: "power1.inOut"});
-                    });
-                }
-            }
-    </script>
 </body>
 </html>

@@ -1,3 +1,8 @@
+// Author: Hein Dijstelbloem
+// Last modified: 2024-03-03
+// Description: This file contains the JavaScript code for the winter page.
+//              It creates snowflakes that fall down the screen.
+// But it's also a mess, the seasons should be in a seperate file so there won't be any issues with other season pages.
 let snowEnabled = false;
 let snowflakes = [];
 const seasons = ['winter', 'winter', 'winter', 'spring', 'spring', 'summer', 'summer', 'summer', 'autumn', 'autumn', 'autumn', 'winter'];
